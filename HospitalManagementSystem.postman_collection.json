@@ -1,0 +1,3465 @@
+{
+	"info": {
+		"_postman_id": "7d21067e-16ed-412f-abb5-71e23dc7d75e",
+		"name": "HospitalManagementSystem",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Mac-Address-Key",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "sessionKey",
+								"value": "IjY2M2E1ZjRkMjMzZjAi",
+								"type": "text"
+							},
+							{
+								"key": "MACadress",
+								"value": "12345678",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "department_id",
+									"value": "25",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "sessionKey",
+								"value": "IjY2M2E1ZjRkMjMzZjAi",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJpZCI6MSwibmFtZSI6ImVtZXJnZW5jeSBkZXBhcnRtZW50IiwiY3JlYXRlZF9hdCI6bnVsbCwidXBkYXRlZF9hdCI6IjIwMjQtMDUtMjFUMTQ6Mzk6MzQuMDAwMDAwWiJ9",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/logout",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Departments",
+			"item": [
+				{
+					"name": "get_all_deps",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6MTYsIm5hbWUiOiJzdXJnZXJ5IGRlcGFydG1lbnQgKFx1MDY0Mlx1MDYzM1x1MDY0NSBcdTA2MjdcdTA2NDRcdTA2MzlcdTA2NDVcdTA2NDRcdTA2NGFcdTA2MjdcdTA2MmEpIiwiY3JlYXRlZF9hdCI6IjIwMjQtMDYtMjZUMjA6NDU6MTEuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDI0LTA2LTI2VDIwOjQ1OjExLjAwMDAwMFoifQ==",
+								"type": "text"
+							},
+							{
+								"key": "sessionKey",
+								"value": "IjY2M2E1ZjRkMjMzZjAi",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/dep/all",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"dep",
+								"all"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get_all_deps",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "eyJpZCI6MTYsIm5hbWUiOiJzdXJnZXJ5IGRlcGFydG1lbnQgKFx1MDY0Mlx1MDYzM1x1MDY0NSBcdTA2MjdcdTA2NDRcdTA2MzlcdTA2NDVcdTA2NDRcdTA2NGFcdTA2MjdcdTA2MmEpIiwiY3JlYXRlZF9hdCI6IjIwMjQtMDYtMjZUMjA6NDU6MTEuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDI0LTA2LTI2VDIwOjQ1OjExLjAwMDAwMFoifQ==",
+										"type": "text"
+									},
+									{
+										"key": "sessionKey",
+										"value": "IjY2M2E1ZjRkMjMzZjAi",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/dep/all",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"dep",
+										"all"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 29 Jun 2024 17:20:52 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"مسؤول قسم المعلوماتية\",\n        \"created_at\": \"2024-05-28T19:48:20.000000Z\",\n        \"updated_at\": \"2024-05-28T19:48:20.000000Z\"\n    },\n    {\n        \"id\": 2,\n        \"name\": \"قسم الاسعاف\",\n        \"created_at\": \"2024-05-28T19:48:20.000000Z\",\n        \"updated_at\": \"2024-05-28T19:48:20.000000Z\"\n    },\n    {\n        \"id\": 3,\n        \"name\": \"الاستقبال بالقسم\",\n        \"created_at\": \"2024-05-28T19:48:20.000000Z\",\n        \"updated_at\": \"2024-05-28T19:48:20.000000Z\"\n    },\n    {\n        \"id\": 4,\n        \"name\": \"قسم الصور الشعاعية الاسعافية\",\n        \"created_at\": \"2024-05-28T19:48:20.000000Z\",\n        \"updated_at\": \"2024-05-28T19:48:20.000000Z\"\n    },\n    {\n        \"id\": 5,\n        \"name\": \"قسم الصور الشعاعية \",\n        \"created_at\": \"2024-05-28T19:48:20.000000Z\",\n        \"updated_at\": \"2024-05-28T19:48:20.000000Z\"\n    },\n    {\n        \"id\": 6,\n        \"name\": \"قسم التحاليل الطبية الاسعافية\",\n        \"created_at\": \"2024-05-28T19:48:20.000000Z\",\n        \"updated_at\": \"2024-05-28T19:48:20.000000Z\"\n    },\n    {\n        \"id\": 7,\n        \"name\": \"قسم التحاليل الطبية\",\n        \"created_at\": \"2024-05-28T19:48:20.000000Z\",\n        \"updated_at\": \"2024-05-28T19:48:20.000000Z\"\n    },\n    {\n        \"id\": 8,\n        \"name\": \"قسم مراقب القبول\",\n        \"created_at\": \"2024-05-28T19:48:20.000000Z\",\n        \"updated_at\": \"2024-05-28T19:48:20.000000Z\"\n    },\n    {\n        \"id\": 9,\n        \"name\": \"المستودع الأدوية\",\n        \"created_at\": \"2024-05-28T19:48:20.000000Z\",\n        \"updated_at\": \"2024-05-28T19:48:20.000000Z\"\n    },\n    {\n        \"id\": 10,\n        \"name\": \"مستودع الأدوات الطبية\",\n        \"created_at\": \"2024-05-28T19:48:20.000000Z\",\n        \"updated_at\": \"2024-05-28T19:48:20.000000Z\"\n    },\n    {\n        \"id\": 11,\n        \"name\": \"قسم الموارد البشرية\",\n        \"created_at\": \"2024-05-28T19:48:21.000000Z\",\n        \"updated_at\": \"2024-05-28T19:48:21.000000Z\"\n    },\n    {\n        \"id\": 12,\n        \"name\": \"قسم العينية\",\n        \"created_at\": \"2024-06-25T07:57:33.000000Z\",\n        \"updated_at\": \"2024-06-25T07:57:33.000000Z\"\n    },\n    {\n        \"id\": 13,\n        \"name\": \"قسم الأطفال\",\n        \"created_at\": \"2024-06-25T07:58:16.000000Z\",\n        \"updated_at\": \"2024-06-25T07:58:16.000000Z\"\n    },\n    {\n        \"id\": 14,\n        \"name\": \"قسم الهضمية\",\n        \"created_at\": \"2024-06-25T07:58:33.000000Z\",\n        \"updated_at\": \"2024-06-25T07:58:33.000000Z\"\n    },\n    {\n        \"id\": 15,\n        \"name\": \"قسم القلبية\",\n        \"created_at\": \"2024-06-25T07:58:57.000000Z\",\n        \"updated_at\": \"2024-06-25T07:58:57.000000Z\"\n    },\n    {\n        \"id\": 16,\n        \"name\": \"قسم الجراحة\",\n        \"created_at\": \"2024-06-26T20:45:11.000000Z\",\n        \"updated_at\": \"2024-06-26T20:45:11.000000Z\"\n    },\n    {\n        \"id\": 17,\n        \"name\": \"قسم الجراحة الاسعافية\",\n        \"created_at\": \"2024-06-29T14:00:04.000000Z\",\n        \"updated_at\": \"2024-06-29T14:00:04.000000Z\"\n    },\n    {\n        \"id\": 18,\n        \"name\": \"قسم العظمية\",\n        \"created_at\": \"2024-06-29T17:03:58.000000Z\",\n        \"updated_at\": \"2024-06-29T17:03:58.000000Z\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "get_specific_dep",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6MSwibmFtZSI6IklUQWRtaW4iLCJjcmVhdGVkX2F0IjoiMjAyNC0wNS0yOFQxOTo0ODoyMC4wMDAwMDBaIiwidXBkYXRlZF9hdCI6IjIwMjQtMDUtMjhUMTk6NDg6MjAuMDAwMDAwWiJ9",
+								"type": "text"
+							},
+							{
+								"key": "sessionKey",
+								"value": "IjY2M2E1ZjRkMjMzZjAi",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/dep/show",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"dep",
+								"show"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All patients in specific department",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "sessionKey",
+								"value": "IjY2M2E1ZjRkMjMzZjAi",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJpZCI6MiwibmFtZSI6IkFtYnVsYW5jZSIsImNyZWF0ZWRfYXQiOiIyMDI0LTA1LTI4VDE5OjQ4OjIwLjAwMDAwMFoiLCJ1cGRhdGVkX2F0IjoiMjAyNC0wNS0yOFQxOTo0ODoyMC4wMDAwMDBaIn0=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "department_id",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/dep/patients",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"dep",
+								"patients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Accept_resident",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "sessionKey",
+								"value": "IjY2M2E1ZjRkMjMzZjAi",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJpZCI6MTMsIm5hbWUiOiJcdTA2NDJcdTA2MzNcdTA2NDUgXHUwNjI3XHUwNjQ0XHUwNjIzXHUwNjM3XHUwNjQxXHUwNjI3XHUwNjQ0IiwiY3JlYXRlZF9hdCI6IjIwMjQtMDYtMjVUMDc6NTg6MTYuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDI0LTA2LTI1VDA3OjU4OjE2LjAwMDAwMFoifQ==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "patient_id",
+									"value": "21",
+									"type": "text"
+								},
+								{
+									"key": "department_id",
+									"value": "13",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/dep/accept_resident",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"dep",
+								"accept_resident"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get_residents",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "sessionKey",
+								"value": "IjY2MTQ3ZjdlMGJlNDci",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJpZCI6MTMsIm5hbWUiOiJcdTA2NDJcdTA2MzNcdTA2NDUgXHUwNjI3XHUwNjQ0XHUwNjIzXHUwNjM3XHUwNjQxXHUwNjI3XHUwNjQ0IiwiY3JlYXRlZF9hdCI6IjIwMjQtMDYtMjVUMDc6NTg6MTYuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDI0LTA2LTI1VDA3OjU4OjE2LjAwMDAwMFoifQ==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "department_id",
+									"value": "15",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/dep/get_residents",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"dep",
+								"get_residents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List of emergency transfaring patients",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6MTUsIm5hbWUiOiJcdTA2NDJcdTA2MzNcdTA2NDUgXHUwNjI3XHUwNjQ0XHUwNjQyXHUwNjQ0XHUwNjI4XHUwNjRhXHUwNjI5IiwiY3JlYXRlZF9hdCI6IjIwMjQtMDYtMjVUMDc6NTg6NTcuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDI0LTA2LTI1VDA3OjU4OjU3LjAwMDAwMFoifQ==",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/dep/emptrlist",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"dep",
+								"emptrlist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Emergency patient",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "get_out_patient",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "fast_treatment",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/dep/fast",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"dep",
+								"fast"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Patient",
+			"item": [
+				{
+					"name": "Add",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "sessionKey",
+								"value": "IjY2M2E1ZjRkMjMzZjAi",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJpZCI6MiwibmFtZSI6IkFtYnVsYW5jZSIsImNyZWF0ZWRfYXQiOiIyMDI0LTA1LTI4VDE5OjQ4OjIwLjAwMDAwMFoiLCJ1cGRhdGVkX2F0IjoiMjAyNC0wNS0yOFQxOTo0ODoyMC4wMDAwMDBaIn0=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "full_name",
+									"value": "امير الحلبي",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "sweda",
+									"type": "text"
+								},
+								{
+									"key": "date_of_birth",
+									"value": "2000-02-01",
+									"type": "text"
+								},
+								{
+									"key": "mom_name",
+									"value": "mom",
+									"type": "text"
+								},
+								{
+									"key": "chain",
+									"value": "56",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "male",
+									"type": "text"
+								},
+								{
+									"key": "case_description",
+									"value": "عملية",
+									"type": "text"
+								},
+								{
+									"key": "treatment_required",
+									"value": "فسم العمليات",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/patient/add",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"patient",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Transfer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "sessionKey",
+								"value": "IjY2MmI2NTk3NjM4ZjIi",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJpZCI6MiwibmFtZSI6IkFtYnVsYW5jZSIsImNyZWF0ZWRfYXQiOiIyMDI0LTA1LTI4VDE5OjEwOjAyLjAwMDAwMFoiLCJ1cGRhdGVkX2F0IjoiMjAyNC0wNS0yOFQxOToxMDowMi4wMDAwMDBaIn0=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "patient_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "tr_department",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/patient/transfer",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"patient",
+								"transfer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Attach_Test",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "sessionKey",
+								"value": "IjY2MTFmNTUzNmQzN2Ei",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJpZCI6NywibmFtZSI6IlRlc3RMYWIiLCJjcmVhdGVkX2F0IjoiMjAyNC0wNS0yOFQxOTo0ODoyMC4wMDAwMDBaIiwidXBkYXRlZF9hdCI6IjIwMjQtMDUtMjhUMTk6NDg6MjAuMDAwMDAwWiJ9",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "patient_id",
+									"value": "8",
+									"type": "text"
+								},
+								{
+									"key": "department_id",
+									"value": "13",
+									"type": "text"
+								},
+								{
+									"key": "test_result",
+									"value": "[asad,fqfqf]",
+									"type": "text"
+								},
+								{
+									"key": "patient_id",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/patient/attach/test",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"patient",
+								"attach",
+								"test"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EM_Attach_Test",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "sessionKey",
+								"value": "IjY2MTFmNTUzNmQzN2Ei",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJpZCI6NiwibmFtZSI6IkVtZXJnZW5jeVRlc3RMYWIiLCJjcmVhdGVkX2F0IjoiMjAyNC0wNS0yOFQxOTo0ODoyMC4wMDAwMDBaIiwidXBkYXRlZF9hdCI6IjIwMjQtMDUtMjhUMTk6NDg6MjAuMDAwMDAwWiJ9",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "patient_id",
+									"value": "14",
+									"type": "text"
+								},
+								{
+									"key": "department_id",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "test_result",
+									"value": "[asad,fqfqf]",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "patient_id",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/emtest/attach/test",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"emtest",
+								"attach",
+								"test"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Attach_X_ray",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "sessionKey",
+								"value": "IjY2MTFmNTUzNmQzN2Ei",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJpZCI6MSwibmFtZSI6IklUQWRtaW4iLCJjcmVhdGVkX2F0IjpudWxsLCJ1cGRhdGVkX2F0IjoiMjAyNC0wNS0yMVQxOTozOToxMS4wMDAwMDBaIn0=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "patient_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "department_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "X_ray_result",
+									"value": "sssa",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/patient/attach/x-ray",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"patient",
+								"attach",
+								"x-ray"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Em_Attach_X_ray",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "sessionKey",
+								"value": "IjY2MTFmNTUzNmQzN2Ei",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJpZCI6MSwibmFtZSI6IklUQWRtaW4iLCJjcmVhdGVkX2F0IjpudWxsLCJ1cGRhdGVkX2F0IjoiMjAyNC0wNS0yMVQxOTozOToxMS4wMDAwMDBaIn0=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "patient_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "department_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "X_ray_result",
+									"value": "sssa",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/emxray/attach/x-ray",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"emxray",
+								"attach",
+								"x-ray"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patient_File",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "sessionKey",
+								"value": "IjY2MTFmNTUzNmQzN2Ei",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJpZCI6MTUsIm5hbWUiOiJcdTA2NDJcdTA2MzNcdTA2NDUgXHUwNjI3XHUwNjQ0XHUwNjQyXHUwNjQ0XHUwNjI4XHUwNjRhXHUwNjI5IiwiY3JlYXRlZF9hdCI6IjIwMjQtMDYtMjVUMDc6NTg6NTcuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDI0LTA2LTI1VDA3OjU4OjU3LjAwMDAwMFoifQ==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "patient_id",
+									"value": "21",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/patient/file",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"patient",
+								"file"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Patient_File",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "sessionKey",
+										"value": "IjY2MTFmNTUzNmQzN2Ei",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "eyJpZCI6NSwibmFtZSI6IlJhZGlvR3JhcGhlciIsImNyZWF0ZWRfYXQiOiIyMDI0LTA1LTI4VDE5OjQ4OjIwLjAwMDAwMFoiLCJ1cGRhdGVkX2F0IjoiMjAyNC0wNS0yOFQxOTo0ODoyMC4wMDAwMDBaIn0=",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "patient_id",
+											"value": "16",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/patient/file",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"patient",
+										"file"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 29 Jun 2024 16:38:29 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"patient_info : \": {\n            \"id\": 16,\n            \"full_name\": \"امير الحلبي\",\n            \"address\": \"sweda\",\n            \"date_of_birth\": \"2000-02-01 00:00:00\",\n            \"mom_name\": \"mom\",\n            \"chain\": 56,\n            \"gender\": \"male\",\n            \"case_description\": \"عملية\",\n            \"treatment_required\": \"فسم العمليات\",\n            \"created_at\": \"2024-06-27T22:19:03.000000Z\",\n            \"updated_at\": \"2024-06-27T22:19:03.000000Z\"\n        },\n        \" dep : \": \"قسم القلبية\",\n        \" last_department : \": \"Ambulance\",\n        \" other: \": {\n            \"id\": 16,\n            \"department_id\": 15,\n            \"patient_id\": 16,\n            \"test_result\": [],\n            \"X_ray_result\": [],\n            \"resident\": \"yes\",\n            \"created_at\": \"2024-06-27T22:19:03.000000Z\",\n            \"updated_at\": \"2024-06-27T22:19:03.000000Z\"\n        }\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Search",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "sessionKey",
+								"value": "IjY2MTFkNDEzZDViZjIi",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJpZCI6MSwibmFtZSI6ImVtZXJnZW5jeSIsImNyZWF0ZWRfYXQiOm51bGwsInVwZGF0ZWRfYXQiOiIyMDI0LTA0LTA2VDIzOjAxOjI1LjAwMDAwMFoifQ==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "patient_name",
+									"value": "fadi",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/patient/search",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"patient",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "emTransfer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "sessionKey",
+								"value": "IjY2M2E1ZjRkMjMzZjAi",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJpZCI6MiwibmFtZSI6IkFtYnVsYW5jZSIsImNyZWF0ZWRfYXQiOiIyMDI0LTA1LTI4VDE5OjQ4OjIwLjAwMDAwMFoiLCJ1cGRhdGVkX2F0IjoiMjAyNC0wNS0yOFQxOTo0ODoyMC4wMDAwMDBaIn0=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "patient_id",
+									"value": "21",
+									"type": "text"
+								},
+								{
+									"key": "tr_department",
+									"value": "13",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/patient/emtransfer",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"patient",
+								"emtransfer"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Queue",
+			"item": [
+				{
+					"name": "Test request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "sessionKey",
+								"value": "IjY2MTFmNTUzNmQzN2Ei",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJpZCI6MTUsIm5hbWUiOiJcdTA2NDJcdTA2MzNcdTA2NDUgXHUwNjI3XHUwNjQ0XHUwNjQyXHUwNjQ0XHUwNjI4XHUwNjRhXHUwNjI5IiwiY3JlYXRlZF9hdCI6IjIwMjQtMDYtMjVUMDc6NTg6NTcuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDI0LTA2LTI1VDA3OjU4OjU3LjAwMDAwMFoifQ==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "patient_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/request/test",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"request",
+								"test"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "emergency test request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "sessionKey",
+								"value": "IjY2MTFmNTUzNmQzN2Ei",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJpZCI6MiwibmFtZSI6IkFtYnVsYW5jZSIsImNyZWF0ZWRfYXQiOiIyMDI0LTA1LTI4VDE5OjQ4OjIwLjAwMDAwMFoiLCJ1cGRhdGVkX2F0IjoiMjAyNC0wNS0yOFQxOTo0ODoyMC4wMDAwMDBaIn0=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "patient_id",
+									"value": "14",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/emrequest/test",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"emrequest",
+								"test"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All patient in the queue",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "sessionKey",
+								"value": "IjY2MTFmNTUzNmQzN2Ei",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJpZCI6NywibmFtZSI6IlRlc3RMYWIiLCJjcmVhdGVkX2F0IjoiMjAyNC0wNS0yOFQxOTo0ODoyMC4wMDAwMDBaIiwidXBkYXRlZF9hdCI6IjIwMjQtMDUtMjhUMTk6NDg6MjAuMDAwMDAwWiJ9",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/test/all",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"test",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All emergency patient in the queue",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "sessionKey",
+								"value": "IjY2MTFmNTUzNmQzN2Ei",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJpZCI6NiwibmFtZSI6IkVtZXJnZW5jeVRlc3RMYWIiLCJjcmVhdGVkX2F0IjoiMjAyNC0wNS0yOFQxOTo0ODoyMC4wMDAwMDBaIiwidXBkYXRlZF9hdCI6IjIwMjQtMDUtMjhUMTk6NDg6MjAuMDAwMDAwWiJ9",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/emtest/all",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"emtest",
+								"all"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "All emergency patient in the queue",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "sessionKey",
+										"value": "IjY2MTFmNTUzNmQzN2Ei",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "eyJpZCI6NiwibmFtZSI6IkVtZXJnZW5jeVRlc3RMYWIiLCJjcmVhdGVkX2F0IjoiMjAyNC0wNS0yOFQxOTo0ODoyMC4wMDAwMDBaIiwidXBkYXRlZF9hdCI6IjIwMjQtMDUtMjhUMTk6NDg6MjAuMDAwMDAwWiJ9",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/emtest/all",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"emtest",
+										"all"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 29 Jun 2024 16:47:39 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"patient_id\": 18,\n        \"created_at\": null,\n        \"updated_at\": null,\n        \"patient\": {\n            \"id\": 18,\n            \"full_name\": \"رائد رستم\",\n            \"address\": \"sweda\",\n            \"date_of_birth\": \"2020-02-01 00:00:00\",\n            \"mom_name\": \"mom\",\n            \"chain\": 56,\n            \"gender\": \"male\",\n            \"case_description\": \"تحاليل\",\n            \"treatment_required\": \"قسم التحاليل\",\n            \"created_at\": \"2024-06-26T20:47:03.000000Z\",\n            \"updated_at\": \"2024-06-26T20:47:03.000000Z\"\n        }\n    },\n    {\n        \"id\": 2,\n        \"patient_id\": 14,\n        \"created_at\": null,\n        \"updated_at\": null,\n        \"patient\": {\n            \"id\": 14,\n            \"full_name\": \"حسن قاضي\",\n            \"address\": \"sweda\",\n            \"date_of_birth\": \"2020-02-01 00:00:00\",\n            \"mom_name\": \"mom\",\n            \"chain\": 56,\n            \"gender\": \"male\",\n            \"case_description\": \"اطفال\",\n            \"treatment_required\": \"قسم الأطفال\",\n            \"created_at\": \"2024-06-25T10:09:12.000000Z\",\n            \"updated_at\": \"2024-06-25T10:09:12.000000Z\"\n        }\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get_patient_from_queue",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "sessionKey",
+								"value": "IjY2MTFmNTUzNmQzN2Ei",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJpZCI6NywibmFtZSI6IlRlc3RMYWIiLCJjcmVhdGVkX2F0IjoiMjAyNC0wNS0yOFQxOTo0ODoyMC4wMDAwMDBaIiwidXBkYXRlZF9hdCI6IjIwMjQtMDUtMjhUMTk6NDg6MjAuMDAwMDAwWiJ9",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "patient_id",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/test/spatient",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"test",
+								"spatient"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "emergency XRAY request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "sessionKey",
+								"value": "IjY2MTFmNTUzNmQzN2Ei",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJpZCI6MiwibmFtZSI6IkFtYnVsYW5jZSIsImNyZWF0ZWRfYXQiOiIyMDI0LTA1LTI4VDE5OjQ4OjIwLjAwMDAwMFoiLCJ1cGRhdGVkX2F0IjoiMjAyNC0wNS0yOFQxOTo0ODoyMC4wMDAwMDBaIn0=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "patient_id",
+									"value": "6",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/emrequest/xray",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"emrequest",
+								"xray"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "XRAY request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "sessionKey",
+								"value": "IjY2MTFmNTUzNmQzN2Ei",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJpZCI6NywibmFtZSI6IlRlc3RMYWIiLCJjcmVhdGVkX2F0IjoiMjAyNC0wNS0yOFQxOTo0ODoyMC4wMDAwMDBaIiwidXBkYXRlZF9hdCI6IjIwMjQtMDUtMjhUMTk6NDg6MjAuMDAwMDAwWiJ9",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "patient_id",
+									"value": "4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/request/xray",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"request",
+								"xray"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All patient in xray queue",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "sessionKey",
+								"value": "",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJpZCI6NSwibmFtZSI6IlJhZGlvR3JhcGhlciIsImNyZWF0ZWRfYXQiOiIyMDI0LTA1LTI4VDE5OjQ4OjIwLjAwMDAwMFoiLCJ1cGRhdGVkX2F0IjoiMjAyNC0wNS0yOFQxOTo0ODoyMC4wMDAwMDBaIn0=",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/xray/all",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"xray",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All empatient in xray queue",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "sessionKey",
+								"value": "",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJpZCI6NCwibmFtZSI6IkVtZXJnZW5jeVJhZGlvR3JhcGhlciIsImNyZWF0ZWRfYXQiOiIyMDI0LTA1LTI4VDE5OjQ4OjIwLjAwMDAwMFoiLCJ1cGRhdGVkX2F0IjoiMjAyNC0wNS0yOFQxOTo0ODoyMC4wMDAwMDBaIn0=",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/emxray/all",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"emxray",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get_patient_fron_xray_queue",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "sessionKey",
+								"value": "IjY2MTFmNTUzNmQzN2Ei",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJpZCI6MSwibmFtZSI6ImZhZGkiLCJjcmVhdGVkX2F0IjpudWxsLCJ1cGRhdGVkX2F0IjoiMjAyNC0wNC0wN1QwMToyMjo1Ny4wMDAwMDBaIn0=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "patient_id",
+									"value": "9",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/xray/xpatient",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"xray",
+								"xpatient"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get_empatient_fron_xray_queue",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "sessionKey",
+								"value": "IjY2MTFmNTUzNmQzN2Ei",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJpZCI6NCwibmFtZSI6IkVtZXJnZW5jeVJhZGlvR3JhcGhlciIsImNyZWF0ZWRfYXQiOiIyMDI0LTA1LTI4VDE5OjQ4OjIwLjAwMDAwMFoiLCJ1cGRhdGVkX2F0IjoiMjAyNC0wNS0yOFQxOTo0ODoyMC4wMDAwMDBaIn0=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "patient_id",
+									"value": "6",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/emxray/xpatient",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"emxray",
+								"xpatient"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get_empatient_fron_test_queue",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "sessionKey",
+								"value": "IjY2MTFmNTUzNmQzN2Ei",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJpZCI6NiwibmFtZSI6IkVtZXJnZW5jeVRlc3RMYWIiLCJjcmVhdGVkX2F0IjoiMjAyNC0wNS0yOFQxOTo0ODoyMC4wMDAwMDBaIiwidXBkYXRlZF9hdCI6IjIwMjQtMDUtMjhUMTk6NDg6MjAuMDAwMDAwWiJ9",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "patient_id",
+									"value": "5",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/emtest/emspatient",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"emtest",
+								"emspatient"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ITSupport",
+			"item": [
+				{
+					"name": "Create Department",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6MSwibmFtZSI6IklUQWRtaW4iLCJjcmVhdGVkX2F0IjoiMjAyNC0wNS0yOFQxOTo0ODoyMC4wMDAwMDBaIiwidXBkYXRlZF9hdCI6IjIwMjQtMDUtMjhUMTk6NDg6MjAuMDAwMDAwWiJ9",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "قسم ألداخلية",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/dep/create",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"dep",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Department",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6MiwibmFtZSI6ImVtZXJnZW5jeSBkZXBhcnRtZW50IiwiY3JlYXRlZF9hdCI6IjIwMjQtMDUtMjFUMTk6NDA6MTIuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDI0LTA1LTIxVDE5OjQwOjEyLjAwMDAwMFoifQ==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "dep_id",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/dep/delete",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"dep",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Department",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6MSwibmFtZSI6IklUQWRtaW4iLCJjcmVhdGVkX2F0IjpudWxsLCJ1cGRhdGVkX2F0IjoiMjAyNC0wNS0yMVQxOTozOToxMS4wMDAwMDBaIn0=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "dep_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "pass",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/dep/updatepass",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"dep",
+								"updatepass"
+							],
+							"query": [
+								{
+									"key": "dep_id",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "pass",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Death",
+			"item": [
+				{
+					"name": "All Deaths",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6MSwibmFtZSI6IklUQWRtaW4iLCJjcmVhdGVkX2F0IjpudWxsLCJ1cGRhdGVkX2F0IjoiMjAyNC0wNS0yMVQxOTozOToxMS4wMDAwMDBaIn0=",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/deaths/all",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"deaths",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Death By Date",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6MSwibmFtZSI6IklUQWRtaW4iLCJjcmVhdGVkX2F0IjpudWxsLCJ1cGRhdGVkX2F0IjoiMjAyNC0wNS0yMVQxOTozOToxMS4wMDAwMDBaIn0=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "date",
+									"value": "10-10-2024",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/deaths/date",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"deaths",
+								"date"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store_Date",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6MSwibmFtZSI6IklUQWRtaW4iLCJjcmVhdGVkX2F0IjpudWxsLCJ1cGRhdGVkX2F0IjoiMjAyNC0wNS0yMVQxOTozOToxMS4wMDAwMDBaIn0=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "ada",
+									"type": "text"
+								},
+								{
+									"key": "father_name",
+									"value": "fafa",
+									"type": "text"
+								},
+								{
+									"key": "mom_name",
+									"value": "aff",
+									"type": "text"
+								},
+								{
+									"key": "birth_date",
+									"value": "20-1-2000",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "afafaf",
+									"type": "text"
+								},
+								{
+									"key": "National_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "death_date",
+									"value": "10-10-2024",
+									"type": "text"
+								},
+								{
+									"key": "death_hour",
+									"value": "1:00",
+									"type": "text"
+								},
+								{
+									"key": "reason_of_death",
+									"value": "saffas",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/deaths/store",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"deaths",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update_death",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6MSwibmFtZSI6IklUQWRtaW4iLCJjcmVhdGVkX2F0IjpudWxsLCJ1cGRhdGVkX2F0IjoiMjAyNC0wNS0yMVQxOTozOToxMS4wMDAwMDBaIn0=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "fasxcx",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/deaths/update/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"deaths",
+								"update",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete_Death",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6MSwibmFtZSI6IklUQWRtaW4iLCJjcmVhdGVkX2F0IjpudWxsLCJ1cGRhdGVkX2F0IjoiMjAyNC0wNS0yMVQxOTozOToxMS4wMDAwMDBaIn0=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/deaths/delete/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"deaths",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Birth",
+			"item": [
+				{
+					"name": "All Birth",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/births/all",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"births",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Death By Birth",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/births/date",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"births",
+								"date"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store_Birth",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/births/store",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"births",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update_Birth",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/births/update/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"births",
+								"update",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete_Birth",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/births/delete/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"births",
+								"delete",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Med StoreKeeper",
+			"item": [
+				{
+					"name": "All reasources",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6OSwibmFtZSI6Ik1lZGljaW5lU3RvcmVLZWVwZXIiLCJjcmVhdGVkX2F0IjoiMjAyNC0wNS0yOFQxOTo0ODoyMC4wMDAwMDBaIiwidXBkYXRlZF9hdCI6IjIwMjQtMDUtMjhUMTk6NDg6MjAuMDAwMDAwWiJ9",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/resources/all",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"resources",
+								"all"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store reasorces",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6OSwibmFtZSI6Ik1lZGljaW5lU3RvcmVLZWVwZXIiLCJjcmVhdGVkX2F0IjoiMjAyNC0wNS0yOFQxOTo0ODoyMC4wMDAwMDBaIiwidXBkYXRlZF9hdCI6IjIwMjQtMDUtMjhUMTk6NDg6MjAuMDAwMDAwWiJ9",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "rettan",
+									"type": "text"
+								},
+								{
+									"key": "end_date",
+									"value": "2026",
+									"type": "text"
+								},
+								{
+									"key": "company",
+									"value": "americano",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "availability_status",
+									"value": "0",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/resources/store",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"resources",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show reasources",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6OSwibmFtZSI6Ik1lZGljaW5lU3RvcmVLZWVwZXIiLCJjcmVhdGVkX2F0IjoiMjAyNC0wNS0yOFQxOTo0ODoyMC4wMDAwMDBaIiwidXBkYXRlZF9hdCI6IjIwMjQtMDUtMjhUMTk6NDg6MjAuMDAwMDAwWiJ9",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/resources/show/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"resources",
+								"show",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Rreasources",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6MSwibmFtZSI6IklUQWRtaW4iLCJjcmVhdGVkX2F0IjpudWxsLCJ1cGRhdGVkX2F0IjoiMjAyNC0wNS0yMVQxOTozOToxMS4wMDAwMDBaIn0=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "qqwwe",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "20",
+									"type": "text"
+								},
+								{
+									"key": "availability_status",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/resources/update/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"resources",
+								"update",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete reasources",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/resources/delete/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"resources",
+								"delete",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "EQ StoreKeeper",
+			"item": [
+				{
+					"name": "All Equipments",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6MSwibmFtZSI6IklUQWRtaW4iLCJjcmVhdGVkX2F0IjpudWxsLCJ1cGRhdGVkX2F0IjoiMjAyNC0wNS0yMVQxOTozOToxMS4wMDAwMDBaIn0=",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/equipment/all",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"equipment",
+								"all"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "eyJpZCI6MSwibmFtZSI6IklUQWRtaW4iLCJjcmVhdGVkX2F0IjpudWxsLCJ1cGRhdGVkX2F0IjoiMjAyNC0wNS0yMVQxOTozOToxMS4wMDAwMDBaIn0=",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store Equipment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6MTAsIm5hbWUiOiJFcXVpcG1lbnRTdG9yZUtlZXBlciIsImNyZWF0ZWRfYXQiOiIyMDI0LTA1LTI4VDE5OjQ4OjIwLjAwMDAwMFoiLCJ1cGRhdGVkX2F0IjoiMjAyNC0wNS0yOFQxOTo0ODoyMC4wMDAwMDBaIn0=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/equipment/store",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"equipment",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Equipment",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6MSwibmFtZSI6IklUQWRtaW4iLCJjcmVhdGVkX2F0IjpudWxsLCJ1cGRhdGVkX2F0IjoiMjAyNC0wNS0yMVQxOTozOToxMS4wMDAwMDBaIn0=",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/equipment/show/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"equipment",
+								"show",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Equipment",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6MSwibmFtZSI6IklUQWRtaW4iLCJjcmVhdGVkX2F0IjpudWxsLCJ1cGRhdGVkX2F0IjoiMjAyNC0wNS0yMVQxOTozOToxMS4wMDAwMDBaIn0=",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/equipment/update/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"equipment",
+								"update",
+								""
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "eyJpZCI6MSwibmFtZSI6IklUQWRtaW4iLCJjcmVhdGVkX2F0IjpudWxsLCJ1cGRhdGVkX2F0IjoiMjAyNC0wNS0yMVQxOTozOToxMS4wMDAwMDBaIn0=",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Equipment",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6MSwibmFtZSI6IklUQWRtaW4iLCJjcmVhdGVkX2F0IjpudWxsLCJ1cGRhdGVkX2F0IjoiMjAyNC0wNS0yMVQxOTozOToxMS4wMDAwMDBaIn0=",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/equipment/Delete/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"equipment",
+								"Delete",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "HR",
+			"item": [
+				{
+					"name": "Establish_attendance",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6MTEsIm5hbWUiOiJIUiIsImNyZWF0ZWRfYXQiOiIyMDI0LTA1LTI4VDE5OjQ4OjIxLjAwMDAwMFoiLCJ1cGRhdGVkX2F0IjoiMjAyNC0wNS0yOFQxOTo0ODoyMS4wMDAwMDBaIn0=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "emp_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "date",
+									"value": "2022-10-1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/HR/establish",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"HR",
+								"establish"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Absent_lifting_leave",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6MTEsIm5hbWUiOiJIUiIsImNyZWF0ZWRfYXQiOiIyMDI0LTA1LTI4VDE5OjQ4OjIxLjAwMDAwMFoiLCJ1cGRhdGVkX2F0IjoiMjAyNC0wNS0yOFQxOTo0ODoyMS4wMDAwMDBaIn0=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "emp_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "date",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/HR/leave",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"HR",
+								"leave"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "absent_panalty",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6MTEsIm5hbWUiOiJIUiIsImNyZWF0ZWRfYXQiOiIyMDI0LTA1LTI4VDE5OjQ4OjIxLjAwMDAwMFoiLCJ1cGRhdGVkX2F0IjoiMjAyNC0wNS0yOFQxOTo0ODoyMS4wMDAwMDBaIn0=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "emp_id",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "date",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/HR/panalty",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"HR",
+								"panalty"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_attendance",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6MiwibmFtZSI6IkhSIiwiY3JlYXRlZF9hdCI6IjIwMjQtMDUtMjNUMTE6NDI6MjQuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDI0LTA1LTIzVDExOjQyOjI0LjAwMDAwMFoifQ==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "attendance_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "date",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/HR/atupdate",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"HR",
+								"atupdate"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_abcent",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "attendance_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "date",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "vacation",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/HR/abupdate",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"HR",
+								"abupdate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All_att_in_date",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6MTEsIm5hbWUiOiJIUiIsImNyZWF0ZWRfYXQiOiIyMDI0LTA1LTI4VDE5OjQ4OjIxLjAwMDAwMFoiLCJ1cGRhdGVkX2F0IjoiMjAyNC0wNS0yOFQxOTo0ODoyMS4wMDAwMDBaIn0=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "date",
+									"value": "2022-10-1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/HR/allat",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"HR",
+								"allat"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all_abcent_in_date",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6MTEsIm5hbWUiOiJIUiIsImNyZWF0ZWRfYXQiOiIyMDI0LTA1LTI4VDE5OjQ4OjIxLjAwMDAwMFoiLCJ1cGRhdGVkX2F0IjoiMjAyNC0wNS0yOFQxOTo0ODoyMS4wMDAwMDBaIn0=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "date",
+									"value": "2024-05-28 ",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/HR/allabc",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"HR",
+								"allabc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all_penalty_in_date",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/HR/allpen",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"HR",
+								"allpen"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add_emp",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6MTEsIm5hbWUiOiJIUiIsImNyZWF0ZWRfYXQiOiIyMDI0LTA1LTI4VDE5OjQ4OjIxLjAwMDAwMFoiLCJ1cGRhdGVkX2F0IjoiMjAyNC0wNS0yOFQxOTo0ODoyMS4wMDAwMDBaIn0=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "bassam alkadamani",
+									"type": "text"
+								},
+								{
+									"key": "department_id",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/HR/addemp",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"HR",
+								"addemp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show_emp",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6MTEsIm5hbWUiOiJIUiIsImNyZWF0ZWRfYXQiOiIyMDI0LTA1LTI4VDE5OjQ4OjIxLjAwMDAwMFoiLCJ1cGRhdGVkX2F0IjoiMjAyNC0wNS0yOFQxOTo0ODoyMS4wMDAwMDBaIn0=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "emp_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/HR/showemp",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"HR",
+								"showemp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_emp",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6MiwibmFtZSI6IkhSIiwiY3JlYXRlZF9hdCI6IjIwMjQtMDUtMjNUMTE6NDI6MjQuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDI0LTA1LTIzVDExOjQyOjI0LjAwMDAwMFoifQ==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "emp_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "fadi1",
+									"type": "text"
+								},
+								{
+									"key": "department_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/HR/updateemp",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"HR",
+								"updateemp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_emp",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6MiwibmFtZSI6IkhSIiwiY3JlYXRlZF9hdCI6IjIwMjQtMDUtMjNUMTE6NDI6MjQuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDI0LTA1LTIzVDExOjQyOjI0LjAwMDAwMFoifQ==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "emp_id",
+									"value": "4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/HR/deleteemp",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"HR",
+								"deleteemp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Employee",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6MTEsIm5hbWUiOiJIUiIsImNyZWF0ZWRfYXQiOiIyMDI0LTA1LTI4VDE5OjQ4OjIxLjAwMDAwMFoiLCJ1cGRhdGVkX2F0IjoiMjAyNC0wNS0yOFQxOTo0ODoyMS4wMDAwMDBaIn0=",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/HR/allemp",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"HR",
+								"allemp"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Surgery",
+			"item": [
+				{
+					"name": "Add Surgery",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/surgery/add",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"surgery",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "empatient surgery turn",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6MTYsIm5hbWUiOiJzdXJnZXJ5IGRlcGFydG1lbnQgKFx1MDY0Mlx1MDYzM1x1MDY0NSBcdTA2MjdcdTA2NDRcdTA2MzlcdTA2NDVcdTA2NDRcdTA2NGFcdTA2MjdcdTA2MmEpIiwiY3JlYXRlZF9hdCI6IjIwMjQtMDYtMjZUMjA6NDU6MTEuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDI0LTA2LTI2VDIwOjQ1OjExLjAwMDAwMFoifQ==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "patient_id",
+									"value": "20",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/surgery/emqueue",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"surgery",
+								"emqueue"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All em surgery",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6MTYsIm5hbWUiOiJzdXJnZXJ5IGRlcGFydG1lbnQgKFx1MDY0Mlx1MDYzM1x1MDY0NSBcdTA2MjdcdTA2NDRcdTA2MzlcdTA2NDVcdTA2NDRcdTA2NGFcdTA2MjdcdTA2MmEpIiwiY3JlYXRlZF9hdCI6IjIwMjQtMDYtMjZUMjA6NDU6MTEuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDI0LTA2LTI2VDIwOjQ1OjExLjAwMDAwMFoifQ==",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/surgery/emall",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"surgery",
+								"emall"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all surgery",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6MTYsIm5hbWUiOiJzdXJnZXJ5IGRlcGFydG1lbnQgKFx1MDY0Mlx1MDYzM1x1MDY0NSBcdTA2MjdcdTA2NDRcdTA2MzlcdTA2NDVcdTA2NDRcdTA2NGFcdTA2MjdcdTA2MmEpIiwiY3JlYXRlZF9hdCI6IjIwMjQtMDYtMjZUMjA6NDU6MTEuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDI0LTA2LTI2VDIwOjQ1OjExLjAwMDAwMFoifQ==",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/surgery/all",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"surgery",
+								"all"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "patient surgery turn",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6MTYsIm5hbWUiOiJzdXJnZXJ5IGRlcGFydG1lbnQgKFx1MDY0Mlx1MDYzM1x1MDY0NSBcdTA2MjdcdTA2NDRcdTA2MzlcdTA2NDVcdTA2NDRcdTA2NGFcdTA2MjdcdTA2MmEpIiwiY3JlYXRlZF9hdCI6IjIwMjQtMDYtMjZUMjA6NDU6MTEuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDI0LTA2LTI2VDIwOjQ1OjExLjAwMDAwMFoifQ==",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/surgery/queue",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"surgery",
+								"queue"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Emergency surgery",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6MTYsIm5hbWUiOiJzdXJnZXJ5IGRlcGFydG1lbnQgKFx1MDY0Mlx1MDYzM1x1MDY0NSBcdTA2MjdcdTA2NDRcdTA2MzlcdTA2NDVcdTA2NDRcdTA2NGFcdTA2MjdcdTA2MmEpIiwiY3JlYXRlZF9hdCI6IjIwMjQtMDYtMjZUMjA6NDU6MTEuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDI0LTA2LTI2VDIwOjQ1OjExLjAwMDAwMFoifQ==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "patient_id",
+									"value": "21",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/surgery/emadd",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"surgery",
+								"emadd"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "start",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "MACadress",
+							"value": "12345",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/start",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"start"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Hash",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "sessionKey",
+						"value": "IjY2M2E1ZjRkMjMzZjAi",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "department_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "text"
+						},
+						{
+							"key": "MACadress",
+							"value": "1234567",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/hash",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"hash"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
