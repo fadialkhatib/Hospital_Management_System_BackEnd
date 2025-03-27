@@ -17,6 +17,11 @@ class Login extends Authenticatable
         'department_id','password',
     ];
 
+
+    public function department()
+    {
+        return $this->hasOne(Department::class,'department_id');
+    }
        
 
    

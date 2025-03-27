@@ -12,4 +12,19 @@ class Patient extends Model
         'full_name','address','date_of_birth','mom_name',
         'chain','gender','case_description','treatment_required'
     ];
+
+    public function patient_file()
+    {
+        return $this->hasMany(Patient_file::class);
+    }
+
+    public function departments()
+    {
+        return $this->belongsToMany(Department::class,'department_id');
+    }
+
+    public function surgeries()
+    {
+        return $this->hasMany(Surgery::class);
+    }
 }
