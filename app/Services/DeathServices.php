@@ -1,21 +1,23 @@
 <?php
 
+namespace App\Services;
+
 use App\Models\Death;
 use Illuminate\Http\Request;
 
-class DeathServices{
-        
+class DeathServices
+{
+
         public static function getByDate(Request $request)
         {
                 $date = $request->input('date');
                 $deaths = Death::where('death_date', $date)->get();
-                if(!$deaths)
-                {
-                        return response()->json(['message'=>'there is no deaths in this date !'],402);
+                if (!$deaths) {
+                        return response()->json(['message' => 'there is no deaths in this date !'], 402);
                 }
-                return response()->json(['Deaths By Day'=>$deaths]);
+                return response()->json(['Deaths By Day' => $deaths]);
         }
-    
+
         // Insert a new death record
         public static function store(Request $request)
         {
@@ -31,7 +33,7 @@ class DeathServices{
                 $death->reason_of_death = $request->input('reason_of_death');
                 $death->save();
 
-                return response()->json(['The new Death'=>$death ,'Message'=>'The new Death Stored Successfully!'],200);
+                return response()->json(['The new Death' => $death, 'Message' => 'The new Death Stored Successfully!'], 200);
         }
 
         // Update an existing death record
@@ -49,7 +51,7 @@ class DeathServices{
                 $death->reason_of_death = $request->input('reason_of_death');
                 $death->save();
 
-                return response()->json(['The Death update is'=>$death],200);
+                return response()->json(['The Death update is' => $death], 200);
         }
 
         // Delete a death record
@@ -58,6 +60,6 @@ class DeathServices{
                 $death = Death::find($id);
                 $death->delete();
 
-                return response()->json(['message' => 'Death record deleted'],200);
+                return response()->json(['message' => 'Death record deleted'], 200);
         }
 }

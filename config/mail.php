@@ -121,4 +121,13 @@ return [
         ],
     ],
 
+    'notifications' => [
+    'inventory' => [
+        'low_stock' => [
+            'enabled' => true,
+            'recipients' => ['inventory@hospital.com', 'pharmacy@hospital.com']
+        ]
+    ]
+]
+
 ];

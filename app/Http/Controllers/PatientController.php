@@ -123,6 +123,12 @@ class PatientController extends Controller
         $all = PatientServices::all_empatient($request);
         return response()->json(['message'=>$all]);
     }
+    
+    public function all_patient(Request $request)
+    {
+        $all = PatientServices::all_patient($request);
+        return response()->json(['message'=>$all]);
+    }
 
 
 }

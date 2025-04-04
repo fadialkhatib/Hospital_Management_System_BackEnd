@@ -9,8 +9,8 @@ class Patient extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'full_name','address','date_of_birth','mom_name',
-        'chain','gender','case_description','treatment_required'
+        'full_name','address','date_of_birth','mom_name','chronic_diseases',
+        'chain','gender','case_description','treatment_required','blood_type'
     ];
 
     public function patient_file()

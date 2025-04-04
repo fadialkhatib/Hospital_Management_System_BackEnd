@@ -17,8 +17,14 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         Registered::class => [
             SendEmailVerificationNotification::class,
-        ],
-    ];
+    ],
+    'App\Events\LowStockEvent' => [
+        'App\Listeners\SendLowStockNotification',
+        'App\Listeners\UpdateStockCache'
+    ], 
+];
+        
+    
 
     /**
      * Register any events for your application.
@@ -35,4 +41,8 @@ class EventServiceProvider extends ServiceProvider
     {
         return false;
     }
+
+    // في EventServiceProvider
+
+
 }
