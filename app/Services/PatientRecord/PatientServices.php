@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\PatientRecord;
 
 use App\Models\BelongToDep;
 use App\Models\Department;
@@ -258,4 +258,6 @@ class PatientServices
                 }
                 return response()->json(['All Emergency Patient' => $response], 200);
         }
+
+        //search
 }

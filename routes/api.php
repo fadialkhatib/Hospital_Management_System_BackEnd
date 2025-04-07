@@ -193,23 +193,7 @@ Route::group(['middleware' => 'myauth'], function () {
 
 
     ### HR PREFIX ###
-    Route::group(['middleware' => 'HR'], function () {
-        Route::group(['prefix' => 'HR', 'controller' => HRController::class], function () {
-            Route::post('/establish', 'Establish_attendance');
-            Route::post('/leave', 'absent_lifting_leave');
-            Route::post('/panalty', 'absent_panalty');
-            Route::post('/atupdate', 'update_attendance');
-            Route::post('/abupdate', 'update_abcent');
-            Route::post('/allat', 'all_att_in_date');
-            Route::post('/allabc', 'all_abcent_in_date');
-            Route::post('/allpen', 'all_penalty_in_date');
-            Route::get('/allemp', 'all_employee');
-            Route::post('/addemp', 'add_emp');
-            Route::post('/showemp', 'show_emp');
-            Route::post('/updateemp', 'update_emp');
-            Route::post('/deleteemp', 'delete_emp');
-        });
-    });
+
 
 
     Route::group(['middleware' => 'SurgeryDepartment'], function () {

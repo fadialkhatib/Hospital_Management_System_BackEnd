@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Birth;
-use BirthServices;
+use App\Services\PatientRecord\BirthServices;
 
 class BirthController extends Controller
 {
@@ -12,7 +12,7 @@ class BirthController extends Controller
     public function index()
     {
         $births = Birth::all();
-        return response()->json(['All Birth'=>$births],200);
+        return response()->json(['All Birth' => $births], 200);
     }
 
 
@@ -20,7 +20,7 @@ class BirthController extends Controller
     public function getByDate(Request $request)
     {
         $get = BirthServices::getByDate($request);
-        return response()->json(['message'=>$get]);
+        return response()->json(['message' => $get]);
     }
 
 
@@ -28,22 +28,22 @@ class BirthController extends Controller
     public function store(Request $request)
     {
         $store = BirthServices::store($request);
-        return response()->json(['message'=>$store]);
+        return response()->json(['message' => $store]);
     }
 
 
     // Update an existing birth record
     public function update(Request $request, $id)
     {
-        $update = BirthServices::update($request,$id);
-        return response()->json(['message'=>$update]);
+        $update = BirthServices::update($request, $id);
+        return response()->json(['message' => $update]);
     }
 
-    
+
     // Delete a birth record
     public function destroy($id)
     {
         $destroy = BirthServices::destroy($id);
-        return response()->json(['message'=>$destroy]);
+        return response()->json(['message' => $destroy]);
     }
 }

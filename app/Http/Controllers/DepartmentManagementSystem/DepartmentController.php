@@ -2,59 +2,51 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ActiveToken;
-use App\Models\BelongToDep;
+
 use App\Models\Department;
-use App\Models\EmArchive;
-use App\Models\empatient;
-use App\Models\EMPBelongTo;
-use App\Models\EMPTransfarOperation;
-use App\Models\FilesArchive;
-use App\Models\Patient;
-use App\Models\Patient_file;
-use App\Models\TransfarOperation;
-use DepartmentServices;
+use App\Services\DepartmentManagement\DepartmentServices;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use PatientServices;
 
 class DepartmentController extends Controller
 {
-    public function update_password(Request $request){
+    public function update_password(Request $request)
+    {
 
         $update = DepartmentServices::update_password($request);
-        return response()->json(['message'=>$update]);
+        return response()->json(['message' => $update]);
     }
 
-    public function delete_department(Request $request){
+    public function delete_department(Request $request)
+    {
 
         $delete = DepartmentServices::delete_department($request);
-        return response()->json(['message'=>$delete]);
+        return response()->json(['message' => $delete]);
     }
 
-    public function create_department(Request $request){
+    public function create_department(Request $request)
+    {
         $create = DepartmentServices::create_department($request);
-        return response()->json(['message'=>$create]);
+        return response()->json(['message' => $create]);
     }
 
     public function all_deps()
     {
         $all = Department::all();
-        return response()->json(['All Departments'=>$all],200);
+        return response()->json(['All Departments' => $all], 200);
     }
 
 
     public function show_dep(Request $request)
     {
-        $dep = Department::where('id',$request->id)->first();
-        return response()->json(['dep_details'=>$dep],200);
+        $dep = Department::where('id', $request->id)->first();
+        return response()->json(['dep_details' => $dep], 200);
     }
 
 
     public function all_p_in_dep(Request $request)
     {
         $get = DepartmentServices::all_p_in_dep($request);
-        return response()->json(['message'=>$get]);
+        return response()->json(['message' => $get]);
     }
 
 
@@ -62,20 +54,20 @@ class DepartmentController extends Controller
     public function accept_resident(Request $request)
     {
         $accept = DepartmentServices::accept_resident($request);
-        return response()->json(['message'=>$accept]);
+        return response()->json(['message' => $accept]);
     }
 
     public function get_residents(Request $request)
     {
         $get = DepartmentServices::get_residents($request);
-        return response()->json(['message'=>$get]);
+        return response()->json(['message' => $get]);
     }
 
 
-   public function list_of_emtransfering_patient(Request $request)
+    public function list_of_emtransfering_patient(Request $request)
     {
         $list = DepartmentServices::list_of_emtransfering_patient($request);
-        return response()->json(['message'=>$list]);
+        return response()->json(['message' => $list]);
     }
 
 
@@ -105,17 +97,13 @@ class DepartmentController extends Controller
 
     public function get_out_patient(Request $request)
     {
-        $res= DepartmentServices::getOut($request);
-        return response()->json(['message'=>$res]);
-        
-}
+        $res = DepartmentServices::getOut($request);
+        return response()->json(['message' => $res]);
+    }
 
     public function fast_treatment(Request $request)
     {
         $fast = DepartmentServices::fast_treatment($request);
-        return response()->json(['message'=>$fast]);
+        return response()->json(['message' => $fast]);
     }
-
-
-
 }

@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\WareHouseManagementSystem;
 
 use App\Models\Cat_item;
 use App\Models\Category;
 use App\Models\Item;
 use App\Models\Sub_category;
+use App\Models\Supplier;
+use App\Models\Tender;
 use Illuminate\Http\Request;
 
 
@@ -174,5 +176,51 @@ class WareHouseServices
         {
                 Item::where('id', $request->category_id)->delete();
                 return response()->json(['message' => 'category deleted successfully']);
+        }
+
+
+        public static function Search(Request $request)
+        {
+                try {
+                        $search = $request->input('search');
+                        $supplier = Supplier::where('name', 'LIKE', "%{$search}%")
+                                ->orWhere('commerical_number', 'LIKE', "%{$search}%")
+                                ->orWhere('type', 'LIKE', "%{$search}%")
+                                ->orWhere('is_approved', 'LIKE', "%{$search}%")->get();
+
+                        $item = Item::where('name', 'LIKE', "%{$search}%")
+                                ->orWhere('description', 'LIKE', "%{$search}%")
+                                ->orWhere('is_expirable', 'LIKE', "%{$search}%")->get();
+
+                        $category = Category::where('name', 'LIKE', "%{$search}%")
+                                ->orWhere('description', 'LIKE', "%{$search}%")->get();
+                        $subCategory = Sub_category::where('name', 'LIKE', "%{$search}%")->get();
+
+                        $tender = Tender::where('title', 'LIKE', "%{$search}%")
+                                ->orWhere('tender_number', 'LIKE', "%{$search}%")
+                                ->orWhere('status', 'LIKE', "%{$search}%")->get();
+
+                        return response()->json([
+                                'success' => true,
+                                'search' => $search,
+                                'data' => [
+                                        'supplier' => $supplier,
+                                        'item' => $item,
+                                        'category' => $category,
+                                        'subCategory' => $subCategory,
+                                        'Tender' => $tender
+                                ],
+                                'meta' => [
+                                        'supplier_count' => $supplier->count(),
+                                        'item_count' => $item->count(),
+                                        'category_count' => $category->count(),
+                                        'subCategory_count' => $subCategory->count(),
+                                        'tender_count' => $tender->count(),
+                                        'total_results' => $item->count() + $item->count() + $category->count() + $subCategory->count() + $tender->count()
+                                ]
+                        ]);
+                } catch (\Exception $e) {
+                        return response()->json(['success' => false, 'message' => $e->getMessage()]);
+                }
         }
 }

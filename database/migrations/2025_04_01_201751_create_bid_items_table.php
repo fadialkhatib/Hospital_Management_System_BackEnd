@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('tender_item_id')->constrained();
             $table->decimal('unit_price', 12, 3);
             $table->decimal('total_price', 15, 3);
-            $table->string('currency', 3)->default('SAR');
+            $table->string('currency', 3)->default('U$A');
             $table->text('notes')->nullable();
             $table->timestamps();
         });

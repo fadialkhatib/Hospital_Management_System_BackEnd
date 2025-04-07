@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\DepartmentManagement;
 
 use App\Models\ActiveToken;
 use App\Models\BelongToDep;
@@ -241,4 +241,6 @@ class DepartmentServices
                 }
                 return response()->json(['message' => 'the patient with name ' . $archive->full_name . 'and his chain ' . $archive->chain . ' fast treatment finished successfully and stored data in archive !'], 200);
         }
+
+        //search
 }

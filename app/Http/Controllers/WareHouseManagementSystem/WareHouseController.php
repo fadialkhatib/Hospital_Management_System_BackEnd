@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Services\WareHouseServices; // or whatever the correct namespace is
+use App\Services\WareHouseManagementSystem\WareHouseServices;
 
 class WareHouseController extends Controller
 {
@@ -83,5 +83,10 @@ class WareHouseController extends Controller
         {
                 $delete = WareHouseServices::delete_item($request);
                 return response()->json($delete);
+        }
+
+        public function Search(Request $request)
+        {
+                return response()->json(WareHouseServices::Search($request));
         }
 }

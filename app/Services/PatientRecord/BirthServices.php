@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\PatientRecord;
 
 use App\Models\Birth;
 use Illuminate\Http\Request;

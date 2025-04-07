@@ -16,10 +16,10 @@ return new class extends Migration
             $table->string('title');
             $table->string('tender_number');
             $table->text('description');
-            $table->date('release_date');//تاريخ الاصدار
+            $table->date('release_date'); //تاريخ الاصدار
             $table->date('closing_date');
-            $table->decimal('budget',15,2);
-            $table->enum('status',['draft','published','under_evaluation','awarded','canceled'])->default('draft');
+            $table->decimal('budget', 15, 2);
+            $table->enum('status', ['draft', 'published', 'under_evaluation', 'awarded', 'canceled'])->default('draft');
             $table->string('barcode');
             $table->foreignId('category_id')->constrained();
             $table->softDeletes();
