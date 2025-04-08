@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\DepartmentManagementSystem;
 
-
+use App\Http\Controllers\Controller;
 use App\Models\Department;
 use App\Services\DepartmentManagement\DepartmentServices;
 use Illuminate\Http\Request;
@@ -31,7 +31,7 @@ class DepartmentController extends Controller
 
     public function all_deps()
     {
-        $all = Department::all();
+        $all = Department::get('name');
         return response()->json(['All Departments' => $all], 200);
     }
 

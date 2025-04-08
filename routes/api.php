@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\QueueController;
@@ -8,6 +7,7 @@ use App\Http\Controllers\SessionController;
 use App\Http\Controllers\DeathController;
 use App\Http\Controllers\BirthController;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\DepartmentManagementSystem\DepartmentController;
 use App\Http\Controllers\EquipmentController;
 use App\Http\Controllers\HRController;
 use App\Http\Controllers\ResourceController;

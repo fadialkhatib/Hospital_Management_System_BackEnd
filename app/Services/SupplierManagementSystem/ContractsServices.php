@@ -11,7 +11,7 @@ class ContractsServices
 
         public static function index()
         {
-                return response()->json(['message' => Contract::all()], 200);
+                return response()->json(['message' => Contract::get()], 200);
         }
 
         public static function getByTender(Request $request)

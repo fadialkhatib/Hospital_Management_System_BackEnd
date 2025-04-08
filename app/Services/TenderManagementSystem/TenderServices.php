@@ -12,7 +12,7 @@ class TenderServices
 
         public static function index()
         {
-                return response()->json(['message' => Tender::all()], 200);
+                return response()->json(['message' => Tender::get()], 200);
         }
 
         public static function getByCategory(Request $request)

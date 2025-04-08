@@ -16,7 +16,7 @@ class WareHouseServices
 
         public static function index()
         {
-                $all = Item::all();
+                $all = Item::get();
                 if (!$all) {
                         return response()->json(['message' => 'the WareHouse is Empty!'], 401);
                 }
@@ -25,7 +25,7 @@ class WareHouseServices
 
         public static function all_categories()
         {
-                $all = Category::all();
+                $all = Category::get();
                 if (!$all) {
                         return response()->json(['message' => 'there are no categories yet!'], 401);
                 }
@@ -34,7 +34,7 @@ class WareHouseServices
 
         public static function all_subcategories()
         {
-                $all = Sub_category::all();
+                $all = Sub_category::get();
                 if (!$all) {
                         return response()->json(['message' => 'there are no subcategories yet!'], 401);
                 }

@@ -11,7 +11,7 @@ class SupplierServices
 
         public static function index()
         {
-                return response()->json(['message' => Supplier::all()]);
+                return response()->json(['message' => Supplier::get()]);
         }
 
         public static function getActiveSuppliers()

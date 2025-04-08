@@ -2,17 +2,32 @@
 
 namespace App\Models;
 
+use App\Events\InventoryChanged;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Inventory_log extends Model
 {
     use HasFactory;
-    protected $fillable = [ 'item_id','user_id','action_type','quantity','unit_cost','total_cost',
-                            'reference_type','reference_id','batch_number','expiry_date','notes'];
+
+
+
+    protected $fillable = [
+        'item_id',
+        'user_id',
+        'action_type',
+        'quantity',
+        'unit_cost',
+        'total_cost',
+        'reference_type',
+        'reference_id',
+        'batch_number',
+        'expiry_date',
+        'notes'
+    ];
 
     public function item()
-        {
-            return $this->belongsTo(Item::class,'item_id');  
-        }
+    {
+        return $this->belongsTo(Item::class, 'item_id');
+    }
 }

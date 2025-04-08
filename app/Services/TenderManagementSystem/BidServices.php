@@ -13,7 +13,7 @@ class BidServices
 
         public static function index()
         {
-                return response()->json(['message' => Bid::all()], 200);
+                return response()->json(['message' => Bid::get()], 200);
         }
 
         public static function getBySupplier(Request $request)

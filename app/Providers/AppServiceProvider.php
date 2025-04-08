@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Item;
+use App\Observers\ItemObserver;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\ServiceProvider;
 
@@ -23,5 +25,7 @@ class AppServiceProvider extends ServiceProvider
         Notification::extend('cache', function ($app) {
             return new \App\Channels\CacheChannel();
         });
+
+        Item::observe(ItemObserver::class);
     }
 }
