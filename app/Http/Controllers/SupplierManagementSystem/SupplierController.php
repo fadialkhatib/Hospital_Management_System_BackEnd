@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\SupplierManagementSystem;
 
+use App\Http\Controllers\Controller;
 use App\Services\SupplierManagementSystem\SupplierServices;
 use Illuminate\Http\Request;
 

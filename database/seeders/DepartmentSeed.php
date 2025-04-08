@@ -14,49 +14,59 @@ class DepartmentSeed extends Seeder
     public function run(): void
     {
         Department::create([
-            'name'=>'ITAdmin',
-            'password'=>Hash::make('12345')
+            'name' => 'ITAdmin',
+            'password' => Hash::make('12345'),
+            'type_id' => 1
         ]);
         Department::create([
-            'name'=>'Ambulance',
-            'password'=>Hash::make('12345')
+            'name' => 'Ambulance',
+            'password' => Hash::make('12345'),
+            'type_id' => 2
         ]);
         Department::create([
-            'name'=>'DepartmentReception',
-            'password'=>Hash::make('12345')
+            'name' => 'DepartmentReception',
+            'password' => Hash::make('12345'),
+            'type_id' => 1
         ]);
         Department::create([
-            'name'=>'EmergencyRadioGrapher',
-            'password'=>Hash::make('12345')
+            'name' => 'EmergencyRadioGrapher',
+            'password' => Hash::make('12345'),
+            'type_id' => 1
         ]);
         Department::create([
-            'name'=>'RadioGrapher',
-            'password'=>Hash::make('12345')
+            'name' => 'RadioGrapher',
+            'password' => Hash::make('12345'),
+            'type_id' => 1
         ]);
         Department::create([
-            'name'=>'EmergencyTestLab',
-            'password'=>Hash::make('12345')
+            'name' => 'EmergencyTestLab',
+            'password' => Hash::make('12345'),
+            'type_id' => 1
         ]);
         Department::create([
-            'name'=>'TestLab',
-            'password'=>Hash::make('12345')
+            'name' => 'TestLab',
+            'password' => Hash::make('12345'),
+            'type_id' => 1
         ]);
         Department::create([
-            'name'=>'AdmissionMonitor',
-            'password'=>Hash::make('12345')
+            'name' => 'AdmissionMonitor',
+            'password' => Hash::make('12345'),
+            'type_id' => 1
         ]);
         Department::create([
-            'name'=>'MedicineStoreKeeper',
-            'password'=>Hash::make('12345')
+            'name' => 'MedicineStoreKeeper',
+            'password' => Hash::make('12345'),
+            'type_id' => 1
         ]);
         Department::create([
-            'name'=>'EquipmentStoreKeeper',
-            'password'=>Hash::make('12345')
+            'name' => 'EquipmentStoreKeeper',
+            'password' => Hash::make('12345'),
+            'type_id' => 1
         ]);
         Department::create([
-            'name'=>'HR',
-            'password'=>Hash::make('12345')
+            'name' => 'HR',
+            'password' => Hash::make('12345'),
+            'type_id' => 1
         ]);
-        
     }
 }

@@ -7,11 +7,12 @@ use App\Http\Responders\Responder;
 
 class LoginResponder extends Responder
 {
-    public static function LoginSuccessResponder($token)
+    public static function LoginSuccessResponder($token, $type)
     {
         return response()->json([
             "message" => "Login Succeeded",
-            "token" => $token
+            "token" => $token,
+            "type" => $type
         ], 200);
     }
 

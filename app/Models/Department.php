@@ -10,7 +10,9 @@ class Department extends Model
     use HasFactory;
 
     protected $fillable = [
-        'password','name'
+        'password',
+        'name',
+        'type_id'
     ];
     protected $hidden = ['password'];
 
@@ -35,5 +37,8 @@ class Department extends Model
     {
         return $this->belongsToMany(Patient::class);
     }
-
+    public function type()
+    {
+        return $this->belongsTo(Type::class);
+    }
 }

@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\PatientRecord;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Death;
 use App\Services\PatientRecord\DeathServices;

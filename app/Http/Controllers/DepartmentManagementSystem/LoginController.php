@@ -1,13 +1,15 @@
 <?php
 
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\DepartmentManagementSystem;
 
+use App\Http\Controllers\Controller;
 use App\Models\ActiveToken;
 use App\Models\Department;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Responders\LoginResponder;
+use App\Models\Type;
 
 class LoginController extends Controller
 {
@@ -37,7 +39,8 @@ class LoginController extends Controller
         }
 
         $newtoken->save();
-        return LoginResponder::LoginSuccessResponder($token);
+        $type = Type::where('id', $department->type_id)->first();
+        return LoginResponder::LoginSuccessResponder($token, $type);
     }
 
     //logout for manager & user
@@ -47,15 +50,4 @@ class LoginController extends Controller
         $token->delete();
         return response()->json(['message' => 'Logged out'], 200);
     }
-
-
-
-    // public function hashhh(Request $request)
-    // {
-    //     $update = ModelsLogin::where(['id'=>$request->user_id,
-    //                            'password'=>$request->password])
-    //                            ->update([
-    //         'password'=>Hash::make($request->password)
-    //                            ]);
-    // }
 }

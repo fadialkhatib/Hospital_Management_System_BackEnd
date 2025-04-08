@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\TenderManagementSystem;
 
+use App\Http\Controllers\Controller;
 use App\Services\TenderManagementSystem\TenderServices;
 use Illuminate\Http\Request;
 

@@ -1,23 +1,22 @@
 <?php
 
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\PatientController;
+use App\Http\Controllers\PatientRecord\PatientController;
 use App\Http\Controllers\QueueController;
 use App\Http\Controllers\SessionController;
-use App\Http\Controllers\DeathController;
-use App\Http\Controllers\BirthController;
+use App\Http\Controllers\PatientRecord\DeathController;
+use App\Http\Controllers\PatientRecord\BirthController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\DepartmentManagementSystem\DepartmentController;
+use App\Http\Controllers\DepartmentManagementSystem\LoginController;
 use App\Http\Controllers\EquipmentController;
 use App\Http\Controllers\HRController;
 use App\Http\Controllers\ResourceController;
-use App\Http\Controllers\SurgeryController;
-use App\Http\Controllers\WareHouseController;
+use App\Http\Controllers\PatientRecord\SurgeryController;
+use App\Http\Controllers\WareHouseManagementSystem\WareHouseController;
 use App\Models\Department;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
-use App\Models\Login as ModelsLogin;
 
 
 /*

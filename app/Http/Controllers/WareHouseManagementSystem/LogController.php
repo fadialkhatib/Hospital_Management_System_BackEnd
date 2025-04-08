@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\WareHouseManagementSystem;
 
+use App\Http\Controllers\Controller;
 use App\Services\WareHouseManagementSystem\WareHouseLogServices;
 use Illuminate\Http\Request;
 

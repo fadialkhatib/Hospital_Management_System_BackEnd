@@ -49,10 +49,12 @@ class DepartmentServices
                         $validate = $request->validate([
                                 'name' => 'require|string',
                                 'password' => 'require',
+                                'type_id' => 'require'
                         ]);
                         $create = Department::create([
                                 'name' => $validate['name'],
-                                'password' => $validate['password']
+                                'password' => $validate['password'],
+                                'type_id' => $validate['type_id']
                         ]);
                 } catch (\Exception $e) {
                         return response()->json($e->getMessage());

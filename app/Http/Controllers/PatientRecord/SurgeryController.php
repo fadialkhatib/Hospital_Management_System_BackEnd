@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\PatientRecord;
 
+use App\Http\Controllers\Controller;
 use App\Models\Empatient;
 use App\Models\EmSurgery;
 use App\Models\Patient;
