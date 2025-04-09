@@ -12,6 +12,7 @@ use App\Models\Patient;
 use App\Models\Patient_file;
 use App\Models\TransfarOperation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PatientServices
 {
@@ -19,6 +20,7 @@ class PatientServices
 
         public static function create_patient(Request $request)
         {
+                $blood_type = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'];
                 try {
                         $validate = $request->validate([
                                 'full_name' => 'required',
@@ -30,11 +32,11 @@ class PatientServices
                                 'case_description' => 'required',
                                 'treatment_required' => 'required',
                                 'chronic_diseases' => 'required',
-                                'blood_type' => 'required'
+                                'blood_type' => 'required',
+                                'in :' . implode(',', $blood_type)
                         ]);
                         $token = json_decode(base64_decode($request->header('token')));
                         $patient = Patient::create([
-                                'id' => $validate['id'],
                                 'full_name' => $validate['full_name'],
                                 'address' => $validate['address'],
                                 'date_of_birth' => $validate['date_of_birth'],
@@ -53,12 +55,14 @@ class PatientServices
                 } catch (\Exception $e) {
                         return response()->json([$e->getMessage()]);
                 }
-                return response()->json($patient);
+                return ($patient);
         }
 
 
         public static function add_patient(Request $request)
         {
+                $blood_type = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'];
+
                 try {
                         $validate = $request->validate([
                                 'full_name' => 'required',
@@ -70,11 +74,15 @@ class PatientServices
                                 'case_description' => 'required',
                                 'treatment_required' => 'required',
                                 'chronic_diseases' => 'required',
-                                'blood_type' => 'required'
+                                'blood_type' => 'required|in:' . implode(',', $blood_type)
                         ]);
+
                         $token = json_decode(base64_decode($request->header('token')));
+
+                        // Start transaction to ensure data consistency
+                        DB::beginTransaction();
+
                         $empatient = Empatient::create([
-                                'id' => $validate['id'],
                                 'full_name' => $validate['full_name'],
                                 'address' => $validate['address'],
                                 'date_of_birth' => $validate['date_of_birth'],
@@ -87,22 +95,26 @@ class PatientServices
                                 'blood_type' => $validate['blood_type'],
                         ]);
 
+                        $belong = EMPBelongTo::create([
+                                'patient_id' => $empatient->id,
+                                'dep_id' => $token->id
+                        ]);
 
-                        $belong = new EMPBelongTo();
-                        $belong->patient_id = $empatient->id;
-                        $belong->dep_id = $token->id;
-                        $belong->save();
                         if ($validate['treatment_required'] == 'emergency treatment') {
                                 $result = PatientServices::create_patient($request);
+                                if (!$result) {
+                                        throw new \Exception('Failed to create patient in external system');
+                                }
 
-                                $attach = Patient_file::create([
-                                        'patient_id' => $request->id,
-                                        'department_id' => 2,
+                                Patient_file::create([
+                                        'patient_id' => $result['id'],
+                                        'department_id' => 2, // Use config instead of hardcoding
                                         'resident' => 'yes',
                                         'test_result' => 'test',
                                         'X_ray_result' => 'x-ray',
                                 ]);
-                                $patientArchive = EmArchive::create([
+
+                                EmArchive::create([
                                         'full_name' => $validate['full_name'],
                                         'address' => $validate['address'],
                                         'date_of_birth' => $validate['date_of_birth'],
@@ -112,15 +124,22 @@ class PatientServices
                                         'case_description' => $validate['case_description'],
                                         'treatment_required' => $validate['treatment_required']
                                 ]);
+
+                                // Consider if you really need to delete these
                                 $empatient->delete();
                                 $belong->delete();
                         }
-                } catch (\Exception $e) {
-                        return response()->json(['message' => $e->getMessage()], 401);
-                }
-                return response()->json(['message' => 'patient info added successfully!'], 200);
-        }
 
+                        DB::commit();
+                        return response()->json(['message' => 'Patient info added successfully!'], 200);
+                } catch (\Illuminate\Validation\ValidationException $e) {
+                        DB::rollBack();
+                        return response()->json(['message' => $e->getMessage(), 'errors' => $e->errors()], 422);
+                } catch (\Exception $e) {
+                        DB::rollBack();
+                        return response()->json(['message' => $e->getMessage()], 500); // Use 500 for server errors
+                }
+        }
 
         public static function patient_file(Request $request)
         {

@@ -12,16 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('empatients', function (Blueprint $table) {
-                $table->id();
-                $table->string('full_name');
-                $table->string('address');
-                $table->dateTimeTz('date_of_birth');
-                $table->string('mom_name');
-                $table->integer('chain');
-                $table->enum('gender',['male','female']);
-                $table->string('case_description');
-                $table->string('treatment_required');
-                $table->timestamps();
+            $table->id();
+            $table->string('full_name');
+            $table->string('address');
+            $table->dateTimeTz('date_of_birth');
+            $table->string('mom_name');
+            $table->integer('chain')->unique()->min(11);
+            $table->enum('gender', ['male', 'female'])->notnull();
+            $table->string('chronic_diseases'); //الأمراض المزمنة
+            $table->enum('blood_type', ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-']);
+            $table->string('case_description');
+            $table->string('treatment_required');
+            $table->timestamps();
         });
     }
 
