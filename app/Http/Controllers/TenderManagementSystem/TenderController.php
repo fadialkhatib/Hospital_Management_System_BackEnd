@@ -42,6 +42,11 @@ class TenderController extends Controller
                 return response()->json(TenderServices::UpdateTender($request));
         }
 
+        public  function getTender(Request $request)
+        {
+                return response()->json(['message' => TenderServices::getTender($request)]);
+        }
+
         public  function DeleteTender()
         {
                 return response()->json(TenderServices::DeleteTender());

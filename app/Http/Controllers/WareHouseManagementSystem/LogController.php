@@ -17,4 +17,9 @@ class LogController extends Controller
     {
         return response()->json(WareHouseLogServices::logsByAction($request));
     }
+
+    public  function getLog(Request $request)
+    {
+        return response()->json(['message' => WareHouseLogServices::getLog($request)]);
+    }
 }

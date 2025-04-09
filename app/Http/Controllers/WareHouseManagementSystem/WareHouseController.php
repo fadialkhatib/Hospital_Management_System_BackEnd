@@ -68,6 +68,21 @@ class WareHouseController extends Controller
                 return response()->json($update);
         }
 
+        public  function getCategory(Request $request)
+        {
+                return response()->json(['message' => WareHouseServices::getCategory($request)]);
+        }
+
+        public  function getSub(Request $request)
+        {
+                return response()->json(['message' => WareHouseServices::getSub($request)]);
+        }
+
+        public  function getItem(Request $request)
+        {
+                return response()->json(['message' => WareHouseServices::getItem($request)]);
+        }
+
         public function delete_category(Request $request)
         {
                 $delete = WareHouseServices::delete_category($request);

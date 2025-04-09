@@ -128,6 +128,19 @@ class TenderServices
                 }
         }
 
+        public static function getTender(Request $request)
+        {
+                $tender = Tender::where('id', $request->tender_id)->first();
+                if ($tender->isEmpty()) {
+                        return response()->json(['message' => 'no tender select'], 400);
+                }
+                $details = Tender_item::where('tender_id', $request->tender_id)->first();
+                if ($details->isEmpty()) {
+                        return response()->json(['message' => 'no tender details'], 400);
+                }
+                return response()->json(['Tender ' => $tender, ' Details ' => $details], 200);
+        }
+
         public static function DeleteTender()
         {
                 $deletedCount = Tender::whereDate('closing_date', '<=', Carbon::now())

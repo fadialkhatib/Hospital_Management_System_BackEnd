@@ -160,6 +160,21 @@ class WareHouseServices
                 return response()->json(['message' => $update, with('updated successful')]);
         }
 
+        public static function getCategory(Request $request)
+        {
+                return response()->json(['message' => Category::where('id', $request->category_id)->first()]);
+        }
+
+        public static function getSub(Request $request)
+        {
+                return response()->json(['message' => Sub_category::where('id', $request->sub_id)->get()]);
+        }
+
+        public static function getItem(Request $request)
+        {
+                return response()->json(['message' => Item::where('id', $request->item_id)->first()]);
+        }
+
         public static function delete_category(Request $request)
         {
                 Category::where('id', $request->category_id)->delete();

@@ -88,6 +88,11 @@ class ContractsServices
                 return response()->json(['message' => 'Contract updated successfully'], 200);
         }
 
+        public static function getContract(Request $request)
+        {
+                return response()->json(['message' => Contract::where('id', $request->id)->first()]);
+        }
+
         public static function deleteContract()
         {
                 $delete = Contract::whereDate('end_date', '<=', Carbon::now())

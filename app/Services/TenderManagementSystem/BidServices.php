@@ -118,6 +118,19 @@ class BidServices
                 return response()->json(['message' => 'Bid created successfully'], 200);
         }
 
+        public static function getBid(Request $request)
+        {
+                $bid = Bid::where('id', $request->bid_id)->first();
+                if ($bid->is_Empty()) {
+                        return response()->json(['message' => 'no bid select'], 400);
+                }
+                $details = Bid_item::where('bid_id', $request->bid_id)->first();
+                if ($details->is_Empty()) {
+                        return response()->json(['message' => 'no bid details'], 400);
+                }
+                return response()->json(['Bid ' => $bid, ' Details ' => $details], 200);
+        }
+
         public static function delete_Bid()
         {
                 $bid = Bid::whereDate('valid_until', '<=', Carbon::now())

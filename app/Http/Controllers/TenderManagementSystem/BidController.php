@@ -40,6 +40,11 @@ class BidController extends Controller
         return response()->json(BidServices::update_bid($request));
     }
 
+    public  function getBid(Request $request)
+    {
+        return response()->json(['message' => BidServices::getBid($request)]);
+    }
+
     public static function delete_Bid()
     {
         return response()->json(BidServices::delete_Bid());

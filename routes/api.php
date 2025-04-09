@@ -12,6 +12,11 @@ use App\Http\Controllers\EquipmentController;
 use App\Http\Controllers\HRController;
 use App\Http\Controllers\ResourceController;
 use App\Http\Controllers\PatientRecord\SurgeryController;
+use App\Http\Controllers\SupplierManagementSystem\ContractController;
+use App\Http\Controllers\SupplierManagementSystem\SupplierController;
+use App\Http\Controllers\TenderManagementSystem\BidController;
+use App\Http\Controllers\TenderManagementSystem\TenderController;
+use App\Http\Controllers\WareHouseManagementSystem\LogController;
 use App\Http\Controllers\WareHouseManagementSystem\WareHouseController;
 use App\Models\Department;
 use Illuminate\Http\Request;
@@ -224,3 +229,88 @@ Route::get('/births/date', [BirthController::class, 'getByDate']);
 Route::post('/births/store', [BirthController::class, 'store']);
 Route::post('/births/update/{id}', [BirthController::class, 'update']);
 Route::delete('/births/delete/{id}', [BirthController::class, 'destroy']);
+
+
+
+//WareHouse API Routes
+Route::group(['prefix' => 'warehouse'], function () {
+    Route::get('/all', [WareHouseController::class, 'index']);
+    Route::get('/all/cat', [WareHouseController::class, 'all_categories']);
+    Route::get('/all/sub', [WareHouseController::class, 'all_subcategories']);
+    Route::get('/all/item', [WareHouseController::class, 'all_item_in_cat']);
+    Route::post('/add/cat', [WareHouseController::class, 'create_category']);
+    Route::post('/add/sub', [WareHouseController::class, 'create_subcategory']);
+    Route::post('/add/item', [WareHouseController::class, 'create_item']);
+    Route::post('/ub/cat', [WareHouseController::class, 'update_category']);
+    Route::post('/ub/sub', [WareHouseController::class, 'update_subcategory']);
+    Route::post('/ub/item', [WareHouseController::class, 'update_item']);
+    Route::get('/show/cat', [TenderController::class, 'getCategory']);
+    Route::get('/show/sub', [TenderController::class, 'getSub']);
+    Route::get('/show/Item', [TenderController::class, 'getItem']);
+    Route::delete('/del/cat', [WareHouseController::class, 'delete_category']);
+    Route::delete('/del/sub', [WareHouseController::class, 'delete_subcategory']);
+    Route::delete('/del/item', [WareHouseController::class, 'delete_item']);
+    Route::post('/search', [WareHouseController::class, 'Search']);
+});
+
+
+
+//Tender API Routes
+Route::group(['prefix' => 'tender'], function () {
+    Route::get('/all', [TenderController::class, 'index']);
+    Route::get('/by/cat', [TenderController::class, 'getByCategory']);
+    Route::get('/by/status', [TenderController::class, 'getByStatus']);
+    Route::post('/add', [TenderController::class, 'NewTender']);
+    Route::post('/add/details', [TenderController::class, 'tenderItemDetails']);
+    Route::post('/ub', [TenderController::class, 'UpdateTender']);
+    Route::get('/show', [TenderController::class, 'getTender']);
+    Route::delete('/del', [TenderController::class, 'DeleteTender']);
+    Route::post('/ch/status', [TenderController::class, 'changeStatus']);
+});
+
+
+//Bid API Routes
+Route::group(['prefix' => 'bid'], function () {
+    Route::get('/all', [BidController::class, 'index']);
+    Route::get('/by/supp', [BidController::class, 'getBySupplier']);
+    Route::get('/by/status', [BidController::class, 'getByStatus']);
+    Route::get('/by/tn', [BidController::class, 'getByTender']);
+    Route::post('/add', [BidController::class, 'craete_bid']);
+    Route::post('/ub', [BidController::class, 'update_bid']);
+    Route::get('/show', [BidController::class, 'getBid']);
+    Route::delete('/del', [BidController::class, 'delete_Bid']);
+    Route::post('/ch/status', [BidController::class, 'changeStatus']);
+});
+
+
+//Supplier API Routes
+Route::group(['prefix' => 'supplier'], function () {
+    Route::get('/all', [SupplierController::class, 'index']);
+    Route::get('/active', [SupplierController::class, 'getActiveSuppliers']);
+    Route::get('/non/active', [SupplierController::class, 'getNonActiveSuppliers']);
+    Route::post('/add', [SupplierController::class, 'addSupplier']);
+    Route::post('/ub', [SupplierController::class, 'updateSupplierinfo']);
+    Route::post('/approve', [SupplierController::class, 'approve']);
+    Route::get('/show', [SupplierController::class, 'getSupplier']);
+    Route::get('/item', [SupplierController::class, 'getSupplierItem']);
+});
+
+//Contract API Routes
+Route::group(['prefix' => 'contract'], function () {
+    Route::get('/all', [ContractController::class, 'index']);
+    Route::get('/by/ten', [ContractController::class, 'getByTender']);
+    Route::get('/by/bid', [ContractController::class, 'getByBid']);
+    Route::get('/by/supp', [ContractController::class, 'getBysupplier']);
+    Route::post('/add', [ContractController::class, 'createContract']);
+    Route::post('/ub', [ContractController::class, 'updateContract']);
+    Route::get('/show', [ContractController::class, 'getContract']);
+    Route::delete('/del', [ContractController::class, 'deleteContract']);
+    Route::post('/ch/status', [ContractController::class, 'changeStatus']);
+});
+
+
+//InventoryLog API Routes
+Route::group(['prefix' => 'log'], function () {
+    Route::get('/all', [LogController::class, 'Logs']);
+    Route::get('/by/action', [LogController::class, 'logsByAction']);
+});

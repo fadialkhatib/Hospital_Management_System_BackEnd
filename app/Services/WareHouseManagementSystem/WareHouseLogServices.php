@@ -26,4 +26,10 @@ class WareHouseLogServices
                 $get = Inventory_log::where('action', $validate['action'])->get();
                 return response()->json(['nessage' => $get], 200);
         }
+
+
+        public static function getLog(Request $request)
+        {
+                return response()->json(['message' => Inventory_log::where('id', $request->log_id)->first()]);
+        }
 }

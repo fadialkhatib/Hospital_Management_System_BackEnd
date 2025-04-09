@@ -38,6 +38,11 @@ class ContractController extends Controller
         return response()->json(ContractsServices::updateContract($request));
     }
 
+    public  function getContract(Request $request)
+    {
+        return response()->json(['message' => ContractsServices::getContract($request)]);
+    }
+
     public static function deleteContract()
     {
         return response()->json(ContractsServices::deleteContract());
