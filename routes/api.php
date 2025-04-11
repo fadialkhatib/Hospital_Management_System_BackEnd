@@ -36,22 +36,6 @@ use Illuminate\Support\Facades\Route;
 */
 //
 
-Route::post(
-    '/hash',
-    function (Request $request) {
-        return  Department::where([
-            'id' => $request->department_id,
-            'password' => $request->password
-        ])
-            ->update([
-                'password' => Hash::make($request->password)
-            ]);
-    }
-);
-
-Route::get('/aaa', function () {
-    return response()->json(["password" => Hash::make("12345678")]);
-});
 Route::post('/start', [SessionController::class, 'startSession']);
 Route::post('/login', [LoginController::class, 'login']);
 Route::get('/dep/all', [DepartmentController::class, 'all_deps']);
@@ -61,31 +45,6 @@ Route::post('/d/d', [WareHouseController::class, 'create_item']);
 ########### AUTH MIDDLEWARE ##################
 Route::group(['middleware' => 'myauth'], function () {
 
-    //['middleware'=>'handshake']
-
-    Route::post('/logout', [LoginController::class, 'logout']);
-
-    Route::post('/dep/show', [DepartmentController::class, 'show_dep']);
-    Route::post('/dep/patients', [DepartmentController::class, 'all_p_in_dep']); //1
-    Route::post('/dep/accept_resident', [DepartmentController::class, 'accept_resident']);
-    Route::post('/dep/get_residents', [DepartmentController::class, 'get_residents']);
-    Route::post('/dep/emptrlist', [DepartmentController::class, 'list_of_emtransfering_patient']);
-    Route::post('/dep/ptrlist', [DepartmentController::class, 'list_of_transfering_patient']);
-    Route::post('/dep/getout', [DepartmentController::class, 'get_out_patient']);
-    Route::post('/dep/fast', [DepartmentController::class, 'fast_treatment']);
-
-
-    Route::get('/patient/allempatient', [PatientController::class, 'all_empatient']);
-    Route::post('/patient/emtransfer', [PatientController::class, 'transfer_empatient_dep']); //go back
-    Route::post('/patient/transfer', [PatientController::class, 'transfer_patient_dep']);
-    Route::post('/patient/file', [PatientController::class, 'patient_file']);
-    Route::post('/patient/search', [PatientController::class, 'searchbypatient']);
-
-    Route::post('/request/test', [QueueController::class, 'request_test']);
-    Route::post('/request/xray', [QueueController::class, 'request_xray']);
-
-    Route::post('/surgery/emadd', [SurgeryController::class, 'Add_emsurgery']);
-    Route::post('/surgery/add', [SurgeryController::class, 'Add_surgery']);
 
     ### IT ADMIN PREFIX ###
     Route::group(['middleware' => 'ITAdmin'], function () {
@@ -113,12 +72,10 @@ Route::group(['middleware' => 'myauth'], function () {
         });
     });
 
+
     ####### Ambulance Employee PREFIX #######
-    Route::group(['middleware' => 'AmbulanceEmp'], function () {
-
-
+    Route::group(['middleware' => 'emg'], function () {
         Route::post('/deps/patients', [DepartmentController::class, 'all_p_in_dep']); //1
-
         Route::group(['prefix' => 'patient', 'controller' => PatientController::class], function () {
             Route::post('/add', 'add_patient');
             Route::post('/emtransfer', 'transfer_empatient_dep');
@@ -130,187 +87,218 @@ Route::group(['middleware' => 'myauth'], function () {
         });
     });
 
-    ####### DEB REC PREFIX #########
-    Route::group(['middleware' => 'DepRec'], function () {
 
-        Route::group(['prefix' => 'dep', 'controller' => DepartmentController::class], function () {});
+    ####### WareHouse Api Routes #######
+    Route::group(['middleware' => 'warehouse'], function () {
+        //WareHouse API Routes
+        Route::group(['prefix' => 'warehouse'], function () {
+            Route::get('/all', [WareHouseController::class, 'index']);
+            Route::get('/all/cat', [WareHouseController::class, 'all_categories']);
+            Route::get('/all/sub', [WareHouseController::class, 'all_subcategories']);
+            Route::get('/all/item', [WareHouseController::class, 'all_item_in_cat']);
+            Route::post('/add/cat', [WareHouseController::class, 'create_category']);
+            Route::post('/add/sub', [WareHouseController::class, 'create_subcategory']);
+            Route::post('/add/item', [WareHouseController::class, 'create_item']);
+            Route::post('/ub/cat', [WareHouseController::class, 'update_category']);
+            Route::post('/ub/sub', [WareHouseController::class, 'update_subcategory']);
+            Route::post('/ub/item', [WareHouseController::class, 'update_item']);
+            Route::get('/show/cat', [TenderController::class, 'getCategory']);
+            Route::get('/show/sub', [TenderController::class, 'getSub']);
+            Route::get('/show/Item', [TenderController::class, 'getItem']);
+            Route::delete('/del/cat', [WareHouseController::class, 'delete_category']);
+            Route::delete('/del/sub', [WareHouseController::class, 'delete_subcategory']);
+            Route::delete('/del/item', [WareHouseController::class, 'delete_item']);
+            Route::post('/search', [WareHouseController::class, 'Search']);
+        });
 
-        Route::group(['prefix' => 'patient', 'controller' => PatientController::class], function () {});
 
-        Route::group(['prefix' => 'request', 'controller' => QueueController::class], function () {});
+        //Tender API Routes
+        Route::group(['prefix' => 'tender'], function () {
+            Route::get('/all', [TenderController::class, 'index']);
+            Route::get('/by/cat', [TenderController::class, 'getByCategory']);
+            Route::get('/by/status', [TenderController::class, 'getByStatus']);
+            Route::post('/add', [TenderController::class, 'NewTender']);
+            Route::post('/add/details', [TenderController::class, 'tenderItemDetails']);
+            Route::post('/ub', [TenderController::class, 'UpdateTender']);
+            Route::get('/show', [TenderController::class, 'getTender']);
+            Route::delete('/del', [TenderController::class, 'DeleteTender']);
+            Route::post('/ch/status', [TenderController::class, 'changeStatus']);
+        });
+
+
+        //Contract API Routes
+        Route::group(['prefix' => 'contract'], function () {
+            Route::get('/all', [ContractController::class, 'index']);
+            Route::get('/by/ten', [ContractController::class, 'getByTender']);
+            Route::get('/by/bid', [ContractController::class, 'getByBid']);
+            Route::get('/by/supp', [ContractController::class, 'getBysupplier']);
+            Route::post('/add', [ContractController::class, 'createContract']);
+            Route::post('/ub', [ContractController::class, 'updateContract']);
+            Route::get('/show', [ContractController::class, 'getContract']);
+            Route::delete('/del', [ContractController::class, 'deleteContract']);
+            Route::post('/ch/status', [ContractController::class, 'changeStatus']);
+        });
+
+
+        //InventoryLog API Routes
+        Route::group(['prefix' => 'log'], function () {
+            Route::get('/all', [LogController::class, 'Logs']);
+            Route::get('/by/action', [LogController::class, 'logsByAction']);
+        });
     });
 
 
+
+
+
+    Route::post('/logout', [LoginController::class, 'logout']);
+
+    Route::post('/dep/show', [DepartmentController::class, 'show_dep']);
+    Route::post('/dep/patients', [DepartmentController::class, 'all_p_in_dep']); //1
+    Route::post('/dep/accept_resident', [DepartmentController::class, 'accept_resident']);
+    Route::post('/dep/get_residents', [DepartmentController::class, 'get_residents']);
+    Route::post('/dep/emptrlist', [DepartmentController::class, 'list_of_emtransfering_patient']);
+    Route::post('/dep/ptrlist', [DepartmentController::class, 'list_of_transfering_patient']);
+    Route::post('/dep/getout', [DepartmentController::class, 'get_out_patient']);
+    Route::post('/dep/fast', [DepartmentController::class, 'fast_treatment']);
+
+
+    Route::get('/patient/allempatient', [PatientController::class, 'all_empatient']);
+    Route::post('/patient/emtransfer', [PatientController::class, 'transfer_empatient_dep']); //go back
+    Route::post('/patient/transfer', [PatientController::class, 'transfer_patient_dep']);
+    Route::post('/patient/file', [PatientController::class, 'patient_file']);
+    Route::post('/patient/search', [PatientController::class, 'searchbypatient']);
+
+    Route::post('/request/test', [QueueController::class, 'request_test']);
+    Route::post('/request/xray', [QueueController::class, 'request_xray']);
+
+    Route::post('/surgery/emadd', [SurgeryController::class, 'Add_emsurgery']);
+    Route::post('/surgery/add', [SurgeryController::class, 'Add_surgery']);
+
+
+
+
+
+
+
+
+
+    // Death API Routes
+    Route::get('/deaths/all', [DeathController::class, 'index']);
+    Route::post('/deaths/date', [DeathController::class, 'getByDate']);
+    Route::post('/deaths/store', [DeathController::class, 'store']);
+    Route::post('/deaths/update/{id}', [DeathController::class, 'update']);
+    Route::delete('/deaths/delete/{id}', [DeathController::class, 'destroy']);
+
+
+    // Births API Routes
+    Route::get('/births/all', [BirthController::class, 'index']);
+    Route::get('/births/date', [BirthController::class, 'getByDate']);
+    Route::post('/births/store', [BirthController::class, 'store']);
+    Route::post('/births/update/{id}', [BirthController::class, 'update']);
+    Route::delete('/births/delete/{id}', [BirthController::class, 'destroy']);
+
+
+
+
+
+
+
+
+
+
+
+    //Bid API Routes
+    Route::group(['prefix' => 'bid'], function () {
+        Route::get('/all', [BidController::class, 'index']);
+        Route::get('/by/supp', [BidController::class, 'getBySupplier']);
+        Route::get('/by/status', [BidController::class, 'getByStatus']);
+        Route::get('/by/tn', [BidController::class, 'getByTender']);
+        Route::post('/add', [BidController::class, 'craete_bid']);
+        Route::post('/ub', [BidController::class, 'update_bid']);
+        Route::get('/show', [BidController::class, 'getBid']);
+        Route::delete('/del', [BidController::class, 'delete_Bid']);
+        Route::post('/ch/status', [BidController::class, 'changeStatus']);
+    });
+
+
+    //Supplier API Routes
+    Route::group(['prefix' => 'supplier'], function () {
+        Route::get('/all', [SupplierController::class, 'index']);
+        Route::get('/active', [SupplierController::class, 'getActiveSuppliers']);
+        Route::get('/non/active', [SupplierController::class, 'getNonActiveSuppliers']);
+        Route::post('/add', [SupplierController::class, 'addSupplier']);
+        Route::post('/ub', [SupplierController::class, 'updateSupplierinfo']);
+        Route::post('/approve', [SupplierController::class, 'approve']);
+        Route::get('/show', [SupplierController::class, 'getSupplier']);
+        Route::get('/item', [SupplierController::class, 'getSupplierItem']);
+    });
+
+
+
+
+
+
+    // ####### DEB REC PREFIX #########
+    // Route::group(['middleware' => 'DepRec'], function () {
+
+    //     Route::group(['prefix' => 'dep', 'controller' => DepartmentController::class], function () {});
+
+    //     Route::group(['prefix' => 'patient', 'controller' => PatientController::class], function () {});
+
+    //     Route::group(['prefix' => 'request', 'controller' => QueueController::class], function () {});
+    // });
+
+
     ####### Em_Radiographer PREFIX ##########
-    Route::group(['middleware' => 'emRadioGrapher'], function () {
 
-        Route::post('/emxray/attach/x-ray', [PatientController::class, 'em_X_ray_result']);         //must change
 
-        Route::group(['prefix' => 'emxray', 'controller' => QueueController::class], function () {
-            Route::get('/all', 'all_emxqueue_patients');
-            Route::post('/xpatient', 'get_emp_from_xqueue');
-        });
+    Route::post('/emxray/attach/x-ray', [PatientController::class, 'em_X_ray_result']);         //must change
+
+    Route::group(['prefix' => 'emxray', 'controller' => QueueController::class], function () {
+        Route::get('/all', 'all_emxqueue_patients');
+        Route::post('/xpatient', 'get_emp_from_xqueue');
     });
 
 
     ####### Radiographer PREFIX ##########
-    Route::group(['middleware' => 'RadioGrapher'], function () {
+    Route::post('/patient/attach/x-ray', [PatientController::class, 'X_ray_result']);         //must change
 
-        Route::post('/patient/attach/x-ray', [PatientController::class, 'X_ray_result']);         //must change
-
-        Route::group(['prefix' => 'xray', 'controller' => QueueController::class], function () {
-            Route::get('/all', 'all_xqueue_patients');
-            Route::post('/xpatient', 'get_p_from_xqueue');
-        });
+    Route::group(['prefix' => 'xray', 'controller' => QueueController::class], function () {
+        Route::get('/all', 'all_xqueue_patients');
+        Route::post('/xpatient', 'get_p_from_xqueue');
     });
 
     ### em Test Lab PREFIX ###
-    Route::group(['middleware' => 'emTestLab'], function () {
+    Route::post('/emtest/attach/test', [PatientController::class, 'em_test_result']);   //must change
 
-        Route::post('/emtest/attach/test', [PatientController::class, 'em_test_result']);   //must change
-
-        Route::group(['prefix' => 'emtest', 'controller' => QueueController::class], function () {
-            Route::get('/all', 'all_emqueue_patients');
-            Route::post('/emspatient', 'get_emp_from_queue');
-        });
+    Route::group(['prefix' => 'emtest', 'controller' => QueueController::class], function () {
+        Route::get('/all', 'all_emqueue_patients');
+        Route::post('/emspatient', 'get_emp_from_queue');
     });
+
+
 
     ### Test Lab PREFIX ###
-    Route::group(['middleware' => 'TestLab'], function () {
 
-        Route::post('/patient/attach/test', [PatientController::class, 'test_result']);       //must change
-        Route::group(['prefix' => 'test', 'controller' => QueueController::class], function () {
-            Route::get('/all', 'all_queue_patients');
-            Route::post('/spatient', 'get_p_from_queue');
-        });
+    Route::post('/patient/attach/test', [PatientController::class, 'test_result']);       //must change
+    Route::group(['prefix' => 'test', 'controller' => QueueController::class], function () {
+        Route::get('/all', 'all_queue_patients');
+        Route::post('/spatient', 'get_p_from_queue');
     });
 
-    ### Admissions Monitor PREFIX ###
-    Route::group(['middleware' => 'AdmissionMonitor'], function () {
 
-        Route::group(['prefix' => 'dep', 'controller' => DepartmentController::class], function () {});
 
-        Route::group(['prefix' => 'patient', 'controller' => PatientController::class], function () {});
+
+
+
+    Route::group(['prefix' => 'surgery', 'controller' => SurgeryController::class], function () {
+        Route::get('/all', 'surgey_queue');
+        Route::post('/queue', 'get_p_from_surgeryqueue');
     });
 
-    ### med Storekeeper PREFIX ###
-
-
-    ### HR PREFIX ###
-
-
-
-    Route::group(['middleware' => 'SurgeryDepartment'], function () {
-        Route::group(['prefix' => 'surgery', 'controller' => SurgeryController::class], function () {
-            Route::get('/all', 'surgey_queue');
-            Route::post('/queue', 'get_p_from_surgeryqueue');
-        });
+    Route::group(['prefix' => 'surgery', 'controller' => SurgeryController::class], function () {
+        Route::get('/emall', 'em_surgey_queue');
+        Route::post('/emqueue', 'get_emp_from_surgeryqueue');
     });
-    Route::group(['middleware' => 'EmergencySurgeryDepartment'], function () {
-        Route::group(['prefix' => 'surgery', 'controller' => SurgeryController::class], function () {
-            Route::get('/emall', 'em_surgey_queue');
-            Route::post('/emqueue', 'get_emp_from_surgeryqueue');
-        });
-    });
-});
-
-
-// Death API Routes
-Route::get('/deaths/all', [DeathController::class, 'index']);
-Route::post('/deaths/date', [DeathController::class, 'getByDate']);
-Route::post('/deaths/store', [DeathController::class, 'store']);
-Route::post('/deaths/update/{id}', [DeathController::class, 'update']);
-Route::delete('/deaths/delete/{id}', [DeathController::class, 'destroy']);
-
-
-// Births API Routes
-Route::get('/births/all', [BirthController::class, 'index']);
-Route::get('/births/date', [BirthController::class, 'getByDate']);
-Route::post('/births/store', [BirthController::class, 'store']);
-Route::post('/births/update/{id}', [BirthController::class, 'update']);
-Route::delete('/births/delete/{id}', [BirthController::class, 'destroy']);
-
-
-
-//WareHouse API Routes
-Route::group(['prefix' => 'warehouse'], function () {
-    Route::get('/all', [WareHouseController::class, 'index']);
-    Route::get('/all/cat', [WareHouseController::class, 'all_categories']);
-    Route::get('/all/sub', [WareHouseController::class, 'all_subcategories']);
-    Route::get('/all/item', [WareHouseController::class, 'all_item_in_cat']);
-    Route::post('/add/cat', [WareHouseController::class, 'create_category']);
-    Route::post('/add/sub', [WareHouseController::class, 'create_subcategory']);
-    Route::post('/add/item', [WareHouseController::class, 'create_item']);
-    Route::post('/ub/cat', [WareHouseController::class, 'update_category']);
-    Route::post('/ub/sub', [WareHouseController::class, 'update_subcategory']);
-    Route::post('/ub/item', [WareHouseController::class, 'update_item']);
-    Route::get('/show/cat', [TenderController::class, 'getCategory']);
-    Route::get('/show/sub', [TenderController::class, 'getSub']);
-    Route::get('/show/Item', [TenderController::class, 'getItem']);
-    Route::delete('/del/cat', [WareHouseController::class, 'delete_category']);
-    Route::delete('/del/sub', [WareHouseController::class, 'delete_subcategory']);
-    Route::delete('/del/item', [WareHouseController::class, 'delete_item']);
-    Route::post('/search', [WareHouseController::class, 'Search']);
-});
-
-
-
-//Tender API Routes
-Route::group(['prefix' => 'tender'], function () {
-    Route::get('/all', [TenderController::class, 'index']);
-    Route::get('/by/cat', [TenderController::class, 'getByCategory']);
-    Route::get('/by/status', [TenderController::class, 'getByStatus']);
-    Route::post('/add', [TenderController::class, 'NewTender']);
-    Route::post('/add/details', [TenderController::class, 'tenderItemDetails']);
-    Route::post('/ub', [TenderController::class, 'UpdateTender']);
-    Route::get('/show', [TenderController::class, 'getTender']);
-    Route::delete('/del', [TenderController::class, 'DeleteTender']);
-    Route::post('/ch/status', [TenderController::class, 'changeStatus']);
-});
-
-
-//Bid API Routes
-Route::group(['prefix' => 'bid'], function () {
-    Route::get('/all', [BidController::class, 'index']);
-    Route::get('/by/supp', [BidController::class, 'getBySupplier']);
-    Route::get('/by/status', [BidController::class, 'getByStatus']);
-    Route::get('/by/tn', [BidController::class, 'getByTender']);
-    Route::post('/add', [BidController::class, 'craete_bid']);
-    Route::post('/ub', [BidController::class, 'update_bid']);
-    Route::get('/show', [BidController::class, 'getBid']);
-    Route::delete('/del', [BidController::class, 'delete_Bid']);
-    Route::post('/ch/status', [BidController::class, 'changeStatus']);
-});
-
-
-//Supplier API Routes
-Route::group(['prefix' => 'supplier'], function () {
-    Route::get('/all', [SupplierController::class, 'index']);
-    Route::get('/active', [SupplierController::class, 'getActiveSuppliers']);
-    Route::get('/non/active', [SupplierController::class, 'getNonActiveSuppliers']);
-    Route::post('/add', [SupplierController::class, 'addSupplier']);
-    Route::post('/ub', [SupplierController::class, 'updateSupplierinfo']);
-    Route::post('/approve', [SupplierController::class, 'approve']);
-    Route::get('/show', [SupplierController::class, 'getSupplier']);
-    Route::get('/item', [SupplierController::class, 'getSupplierItem']);
-});
-
-//Contract API Routes
-Route::group(['prefix' => 'contract'], function () {
-    Route::get('/all', [ContractController::class, 'index']);
-    Route::get('/by/ten', [ContractController::class, 'getByTender']);
-    Route::get('/by/bid', [ContractController::class, 'getByBid']);
-    Route::get('/by/supp', [ContractController::class, 'getBysupplier']);
-    Route::post('/add', [ContractController::class, 'createContract']);
-    Route::post('/ub', [ContractController::class, 'updateContract']);
-    Route::get('/show', [ContractController::class, 'getContract']);
-    Route::delete('/del', [ContractController::class, 'deleteContract']);
-    Route::post('/ch/status', [ContractController::class, 'changeStatus']);
-});
-
-
-//InventoryLog API Routes
-Route::group(['prefix' => 'log'], function () {
-    Route::get('/all', [LogController::class, 'Logs']);
-    Route::get('/by/action', [LogController::class, 'logsByAction']);
 });

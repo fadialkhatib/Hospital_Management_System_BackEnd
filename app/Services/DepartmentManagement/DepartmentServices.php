@@ -53,7 +53,7 @@ class DepartmentServices
                         ]);
                         $create = Department::create([
                                 'name' => $validate['name'],
-                                'password' => $validate['password'],
+                                'password' => Hash::make($validate['password']),
                                 'type_id' => $validate['type_id']
                         ]);
                 } catch (\Exception $e) {

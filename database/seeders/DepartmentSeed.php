@@ -26,27 +26,27 @@ class DepartmentSeed extends Seeder
         Department::create([
             'name' => 'DepartmentReception',
             'password' => Hash::make('12345'),
-            'type_id' => 1
+            'type_id' => 4
         ]);
         Department::create([
             'name' => 'EmergencyRadioGrapher',
             'password' => Hash::make('12345'),
-            'type_id' => 1
+            'type_id' => 2
         ]);
         Department::create([
             'name' => 'RadioGrapher',
             'password' => Hash::make('12345'),
-            'type_id' => 1
+            'type_id' => 4
         ]);
         Department::create([
             'name' => 'EmergencyTestLab',
             'password' => Hash::make('12345'),
-            'type_id' => 1
+            'type_id' => 2
         ]);
         Department::create([
             'name' => 'TestLab',
             'password' => Hash::make('12345'),
-            'type_id' => 1
+            'type_id' => 4
         ]);
         Department::create([
             'name' => 'AdmissionMonitor',
@@ -54,14 +54,9 @@ class DepartmentSeed extends Seeder
             'type_id' => 1
         ]);
         Department::create([
-            'name' => 'MedicineStoreKeeper',
+            'name' => 'WareHouse Department',
             'password' => Hash::make('12345'),
-            'type_id' => 1
-        ]);
-        Department::create([
-            'name' => 'EquipmentStoreKeeper',
-            'password' => Hash::make('12345'),
-            'type_id' => 1
+            'type_id' => 3
         ]);
         Department::create([
             'name' => 'HR',

@@ -15,9 +15,15 @@ class TypeSeed extends Seeder
         public function run(): void
         {
                 Type::create([
+                        'type' => 'ITAdmin'
+                ]);
+                Type::create([
                         'type' => 'Emergency Department'
                 ]);
 
+                Type::create([
+                        'type' => 'WareHouse Department'
+                ]);
                 Type::create([
                         'type' => 'Normal Department'
                 ]);

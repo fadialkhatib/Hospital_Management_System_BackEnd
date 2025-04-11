@@ -40,7 +40,7 @@ class Kernel extends HttpKernel
 
         'api' => [
             // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
-            \Illuminate\Routing\Middleware\ThrottleRequests::class.':api',
+            \Illuminate\Routing\Middleware\ThrottleRequests::class . ':api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
     ];
@@ -58,26 +58,15 @@ class Kernel extends HttpKernel
         'auth.session' => \Illuminate\Session\Middleware\AuthenticateSession::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
-        'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'password.confirm' => \Illuminate\Auth\Middleware\RequirePassword::class,
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'handshake'=>\App\Http\Middleware\HandshakeMeddleware::class,
-        'myauth'=>\App\Http\Middleware\MyAuthentication::class,
+        'handshake' => \App\Http\Middleware\HandshakeMeddleware::class,
+        'myauth' => \App\Http\Middleware\MyAuthentication::class,
+        'ITAdmin' => \App\Http\Middleware\EmegencyMidlleware::class,
+        'emg' => \App\Http\Middleware\EmegencyMidlleware::class,
+        'warehouse' => \App\Http\Middleware\WareHouseMidlleware::class,
 
-        'AdmissionMonitor'=>\App\Http\Middleware\AdmissionMonitor::class,
-        'AmbulanceEmp'=>\App\Http\Middleware\AmbulanceEmp::class,
-        'DepRec'=>\App\Http\Middleware\DepRec::class,
-        'emRadioGrapher'=>\App\Http\Middleware\emRadioGrapher::class,
-        'emTestLab'=>\App\Http\Middleware\emTestLab::class,
-        'eqStoreKeeper'=>\App\Http\Middleware\eqStoreKeeper::class,
-        'HR'=>\App\Http\Middleware\HR::class,
-        'ITAdmin'=>\App\Http\Middleware\ITAdmin::class,
-        'medStoreKeeper'=>\App\Http\Middleware\medStoreKeeper::class,
-        'RadioGrapher'=>\App\Http\Middleware\RadioGrapher::class,
-        'TestLab'=>\App\Http\Middleware\TestLab::class,
-        'SurgeryDepartment'=>\App\Http\Middleware\Surgery::class,
-        'EmergencySurgeryDepartment'=>\App\Http\Middleware\Emsurgery::class,
     ];
 }

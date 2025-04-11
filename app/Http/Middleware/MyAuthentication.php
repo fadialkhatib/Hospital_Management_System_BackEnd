@@ -16,10 +16,12 @@ class MyAuthentication
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(!$request->hasHeader('token') || $request->header('token') =="")      return response()->json(["message" => "Missed Token"], 401);
-        $token=json_decode(base64_decode($request->header('token')));
-        $check=ActiveToken::where('token',$request->header('token'))->first();
-        if(!$check) return response()->json(["message" => "InValid Token"], 401);
+        if (!$request->hasHeader('token') || $request->header('token') == "")
+            return response()->json(["message" => "Missed Token"], 401);
+        $token = json_decode(base64_decode($request->header('token')));
+        $check = ActiveToken::where('token', $request->header('token'))->first();
+        if (!$check)
+            return response()->json(["message" => "InValid Token"], 401);
         return $next($request);
     }
 }
