@@ -13,9 +13,8 @@ class UpdateStockCache
     public function handle($event)
     {
         Cache::forget('low_stock_items');
-        Cache::remember('low_stock_items', 60, function() {
+        Cache::remember('low_stock_items', 60, function () {
             return Item::whereColumn('current_quantity', '<', 'min_quantity')->get();
         });
     }
 }
-
