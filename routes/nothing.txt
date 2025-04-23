@@ -1,0 +1,46 @@
+
+
+    ########  Deparment Routes  ##########
+    //Route::get('/deps/all',[DepartmentController::class,'all_deps']);
+    //Route::post('/deps/show',[DepartmentController::class,'show_dep']);
+    //Route::post('/deps/patients',[DepartmentController::class,'all_p_in_dep']);
+    // Route::post('/deps/accept_resident',[DepartmentController::class,'accept_resident']);
+    // Route::post('/deps/get_residents',[DepartmentController::class,'get_residents']);
+
+    ########### Patient Routes #########
+    // Route::post('/patient/add',[PatientController::class,'add_patient']);
+    // Route::post('/patient/file',[PatientController::class,'patient_file']);
+    // Route::post('/patient/transfer',[PatientController::class,'transfer_patient_dep']);
+    // Route::post('/empatient/transfer',[PatientController::class,'transfer_empatient_dep']);
+
+    //get test results for emergency patient
+    //get test results for resident patient
+
+    //get Xray result for emergency patient
+    //get Xray result for resident patient
+
+    ### مكتب القبول ###
+    //search
+    //update
+    //etc ...
+
+
+
+    // Route::post('/patient/attach/test',[PatientController::class,'test_result']);           //must change
+//    Route::post('/patient/attach/emergency',[PatientController::class,'emergency']);
+    // Route::post('/patient/attach/x-ray',[PatientController::class,'X_ray_result']);         //must change
+    // Route::post('/patient/search',[PatientController::class,'searchbypatient']);
+
+    ##################### Queue Test ##################
+    // Route::post('/test/request',[QueueController::class,'request_test']);
+    // Route::post('/emtest/request',[QueueController::class,'request_test']);
+    // Route::get('/test/all',[QueueController::class,'all_queue_patients']);
+    // Route::get('/emtest/all',[QueueController::class,'all_queue_patients']);
+    // Route::post('/test/spatient',[QueueController::class,'get_p_from_queue']);
+    ######  Queue Xray #####
+    // Route::post('/xray/request',[QueueController::class,'request_xray']);
+    // Route::post('/emxray/request',[QueueController::class,'request_xray']);
+    // Route::get('/xray/all',[QueueController::class,'all_xqueue_patients']);
+    // Route::get('/emxray/all',[QueueController::class,'all_xqueue_patients']);
+    // Route::post('/xray/spatient',[QueueController::class,'get_p_from_xqueue']);
+
