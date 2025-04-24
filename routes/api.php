@@ -115,12 +115,12 @@ Route::group(['middleware' => 'myauth'], function () {
         //Tender API Routes
         Route::group(['prefix' => 'tender'], function () {
             Route::get('/all', [TenderController::class, 'index']);
-            Route::get('/by/cat', [TenderController::class, 'getByCategory']);
-            Route::get('/by/status', [TenderController::class, 'getByStatus']);
+            Route::post('/by/cat', [TenderController::class, 'getByCategory']);
+            Route::post('/by/status', [TenderController::class, 'getByStatus']);
             Route::post('/add', [TenderController::class, 'NewTender']);
-            Route::post('/add/details', [TenderController::class, 'tenderItemDetails']);
+            Route::post('/details', [TenderController::class, 'tenderItemDetails']);
             Route::post('/ub', [TenderController::class, 'UpdateTender']);
-            Route::get('/show', [TenderController::class, 'getTender']);
+            Route::post('/show', [TenderController::class, 'getTender']);
             Route::delete('/del', [TenderController::class, 'DeleteTender']);
             Route::post('/ch/status', [TenderController::class, 'changeStatus']);
         });
@@ -230,8 +230,8 @@ Route::group(['middleware' => 'myauth'], function () {
         Route::post('/add', [SupplierController::class, 'addSupplier']);
         Route::post('/ub', [SupplierController::class, 'updateSupplierinfo']);
         Route::post('/approve', [SupplierController::class, 'approve']);
-        Route::get('/show', [SupplierController::class, 'getSupplier']);
-        Route::get('/item', [SupplierController::class, 'getSupplierItem']);
+        Route::post('/show', [SupplierController::class, 'getSupplier']);
+        Route::post('/item', [SupplierController::class, 'getSupplierItem']);
     });
 
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 23 أبريل 2025 الساعة 16:23
+-- Generation Time: 24 أبريل 2025 الساعة 16:55
 -- إصدار الخادم: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -820,7 +820,8 @@ CREATE TABLE `suppliers` (
 
 INSERT INTO `suppliers` (`id`, `name`, `commerical_number`, `type`, `address`, `email`, `is_approved`, `notes`, `deleted_at`, `created_at`, `updated_at`) VALUES
 (1, 'ffdd', '12345', 'government', 'wwweee', 'aa@gmail.com', 1, 'aefqefeafafaefeaf', NULL, '2025-04-19 15:32:08', '2025-04-19 15:32:08'),
-(2, 'ffdd', '12345', 'government', 'wwweee', 'aa@gmail.com', 1, 'aefqefeafafaefeaf', NULL, '2025-04-19 15:32:39', '2025-04-19 15:32:39');
+(2, 'فادي الخطيب', '3343', 'local', 'Alswaidaa', 'Fadi@gmail.com', 0, 'تغير كل من الايميل والموثوقية والرقم التجاري و النوع', NULL, '2025-04-19 15:32:39', '2025-04-24 10:50:31'),
+(3, 'ffdd', '12345', 'government', 'wwweee', 'aa@gmail.com', 1, 'aefqefeafafaefeaf', NULL, '2025-04-24 11:00:21', '2025-04-24 11:00:21');
 
 -- --------------------------------------------------------
 
@@ -857,6 +858,13 @@ CREATE TABLE `tenders` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- إرجاع أو استيراد بيانات الجدول `tenders`
+--
+
+INSERT INTO `tenders` (`id`, `title`, `tender_number`, `description`, `release_date`, `closing_date`, `budget`, `status`, `barcode`, `category_id`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, 'صفقة شراء معقمات', '1', 'شراء معقم من مناقصة نظرا لحاجة المشفى للمعقم', '2025-04-24', '2025-05-24', 1000.00, 'published', '12345', 2, NULL, '2025-04-24 11:30:39', '2025-04-24 11:53:09');
+
 -- --------------------------------------------------------
 
 --
@@ -877,6 +885,13 @@ CREATE TABLE `tender_items` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- إرجاع أو استيراد بيانات الجدول `tender_items`
+--
+
+INSERT INTO `tender_items` (`id`, `tender_id`, `item_id`, `item_name`, `description`, `quantity`, `unit`, `specifications`, `unit_price`, `total_price`, `created_at`, `updated_at`) VALUES
+(1, 1, 51, 'Detool', 'شراء معقم من مناقصة نظرا لحاجة المشفى للمعقم', 1500, 'قطعة', 'معقم ذات كحول 100%', 100.000, 150000.000, '2025-04-24 11:30:39', '2025-04-24 11:30:39');
 
 -- --------------------------------------------------------
 
@@ -1479,7 +1494,7 @@ ALTER TABLE `sub_categories`
 -- AUTO_INCREMENT for table `suppliers`
 --
 ALTER TABLE `suppliers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `surgeries`
@@ -1491,13 +1506,13 @@ ALTER TABLE `surgeries`
 -- AUTO_INCREMENT for table `tenders`
 --
 ALTER TABLE `tenders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tender_items`
 --
 ALTER TABLE `tender_items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `testqueues`

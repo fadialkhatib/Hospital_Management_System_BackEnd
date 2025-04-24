@@ -3031,12 +3031,18 @@
 			"name": "Supplier",
 			"item": [
 				{
-					"name": "Add Supplier",
+					"name": "All Suppliers",
 					"request": {
-						"method": "POST",
-						"header": [],
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6OSwibmFtZSI6IldhcmVIb3VzZSBEZXBhcnRtZW50IiwidHlwZV9pZCI6MywiY3JlYXRlZF9hdCI6IjIwMjUtMDQtMTVUMDQ6Mjk6NDIuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDI1LTA0LTE1VDA0OjI5OjQyLjAwMDAwMFoifQ==",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/warehouse/add/item",
+							"raw": "http://127.0.0.1:8000/api/supplier/all",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -3047,47 +3053,336 @@
 							"port": "8000",
 							"path": [
 								"api",
-								"warehouse",
-								"add",
-								"item"
+								"supplier",
+								"all"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "Active Supplier",
 					"request": {
 						"method": "GET",
-						"header": [],
-						"url": null
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6OSwibmFtZSI6IldhcmVIb3VzZSBEZXBhcnRtZW50IiwidHlwZV9pZCI6MywiY3JlYXRlZF9hdCI6IjIwMjUtMDQtMTVUMDQ6Mjk6NDIuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDI1LTA0LTE1VDA0OjI5OjQyLjAwMDAwMFoifQ==",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/supplier/active",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"supplier",
+								"active"
+							]
+						}
 					},
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "Non Active Supplier",
 					"request": {
 						"method": "GET",
-						"header": [],
-						"url": null
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6OSwibmFtZSI6IldhcmVIb3VzZSBEZXBhcnRtZW50IiwidHlwZV9pZCI6MywiY3JlYXRlZF9hdCI6IjIwMjUtMDQtMTVUMDQ6Mjk6NDIuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDI1LTA0LTE1VDA0OjI5OjQyLjAwMDAwMFoifQ==",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/supplier/non/active",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"supplier",
+								"non",
+								"active"
+							]
+						}
 					},
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "Add Supplier",
 					"request": {
-						"method": "GET",
-						"header": [],
-						"url": null
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6OSwibmFtZSI6IldhcmVIb3VzZSBEZXBhcnRtZW50IiwidHlwZV9pZCI6MywiY3JlYXRlZF9hdCI6IjIwMjUtMDQtMTVUMDQ6Mjk6NDIuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDI1LTA0LTE1VDA0OjI5OjQyLjAwMDAwMFoifQ==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "ffdd",
+									"type": "text"
+								},
+								{
+									"key": "commerical_number",
+									"value": "12345",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "government",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "wwweee",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "aa@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "notes",
+									"value": "aefqefeafafaefeaf",
+									"type": "text"
+								},
+								{
+									"key": "is_approved",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/supplier/add",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"supplier",
+								"add"
+							]
+						}
 					},
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "Update Supplier",
 					"request": {
-						"method": "GET",
-						"header": [],
-						"url": null
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6OSwibmFtZSI6IldhcmVIb3VzZSBEZXBhcnRtZW50IiwidHlwZV9pZCI6MywiY3JlYXRlZF9hdCI6IjIwMjUtMDQtMTVUMDQ6Mjk6NDIuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDI1LTA0LTE1VDA0OjI5OjQyLjAwMDAwMFoifQ==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "supplier_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "فادي الخطيب",
+									"type": "text"
+								},
+								{
+									"key": "commerical_number",
+									"value": "3343",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "local",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "Alswaidaa",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "Fadi@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "is_approved",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "notes",
+									"value": "تغير كل من الايميل والموثوقية والرقم التجاري و النوع",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/supplier/ub",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"supplier",
+								"ub"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Approve",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6OSwibmFtZSI6IldhcmVIb3VzZSBEZXBhcnRtZW50IiwidHlwZV9pZCI6MywiY3JlYXRlZF9hdCI6IjIwMjUtMDQtMTVUMDQ6Mjk6NDIuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDI1LTA0LTE1VDA0OjI5OjQyLjAwMDAwMFoifQ==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "supplier_id",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/supplier/approve",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"supplier",
+								"approve"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Supplier",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6OSwibmFtZSI6IldhcmVIb3VzZSBEZXBhcnRtZW50IiwidHlwZV9pZCI6MywiY3JlYXRlZF9hdCI6IjIwMjUtMDQtMTVUMDQ6Mjk6NDIuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDI1LTA0LTE1VDA0OjI5OjQyLjAwMDAwMFoifQ==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "supplier_id",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/supplier/show",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"supplier",
+								"show"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Supplier Item",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6OSwibmFtZSI6IldhcmVIb3VzZSBEZXBhcnRtZW50IiwidHlwZV9pZCI6MywiY3JlYXRlZF9hdCI6IjIwMjUtMDQtMTVUMDQ6Mjk6NDIuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDI1LTA0LTE1VDA0OjI5OjQyLjAwMDAwMFoifQ==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "supplier_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/supplier/item",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"supplier",
+								"item"
+							]
+						}
 					},
 					"response": []
 				}
@@ -3112,12 +3407,12 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "kkkk",
+									"value": "Cleaner",
 									"type": "text"
 								},
 								{
 									"key": "description",
-									"value": "vssvdsvsvs",
+									"value": "Clean and ta3keem",
 									"type": "text"
 								}
 							]
@@ -3158,7 +3453,7 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "aa",
+									"value": "Soap",
 									"type": "text"
 								}
 							]
@@ -3199,22 +3494,22 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "ww",
+									"value": "Detool",
 									"type": "text"
 								},
 								{
 									"key": "code",
-									"value": "1",
+									"value": "145325",
 									"type": "text"
 								},
 								{
 									"key": "description",
-									"value": "afafeaf",
+									"value": "Soap to clean and destroy all viruses",
 									"type": "text"
 								},
 								{
 									"key": "barcode",
-									"value": "1",
+									"value": "145325",
 									"type": "text"
 								},
 								{
@@ -3269,7 +3564,7 @@
 								},
 								{
 									"key": "notes",
-									"value": "no notes",
+									"value": "يحفظ بعيدا عن متناول الأطفال . للاستعمال الخارجي فقط",
 									"type": "text"
 								}
 							]
@@ -3866,6 +4161,516 @@
 								"api",
 								"warehouse",
 								"search"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tender",
+			"item": [
+				{
+					"name": "All Tender",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6OSwibmFtZSI6IldhcmVIb3VzZSBEZXBhcnRtZW50IiwidHlwZV9pZCI6MywiY3JlYXRlZF9hdCI6IjIwMjUtMDQtMTVUMDQ6Mjk6NDIuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDI1LTA0LTE1VDA0OjI5OjQyLjAwMDAwMFoifQ==",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/tender/all",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"tender",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tender By Category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6OSwibmFtZSI6IldhcmVIb3VzZSBEZXBhcnRtZW50IiwidHlwZV9pZCI6MywiY3JlYXRlZF9hdCI6IjIwMjUtMDQtMTVUMDQ6Mjk6NDIuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDI1LTA0LTE1VDA0OjI5OjQyLjAwMDAwMFoifQ==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "category_id",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/tender/by/cat",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"tender",
+								"by",
+								"cat"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tender By Status",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6OSwibmFtZSI6IldhcmVIb3VzZSBEZXBhcnRtZW50IiwidHlwZV9pZCI6MywiY3JlYXRlZF9hdCI6IjIwMjUtMDQtMTVUMDQ6Mjk6NDIuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDI1LTA0LTE1VDA0OjI5OjQyLjAwMDAwMFoifQ==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "status",
+									"value": "draft",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/tender/by/status",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"tender",
+								"by",
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Tender",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6OSwibmFtZSI6IldhcmVIb3VzZSBEZXBhcnRtZW50IiwidHlwZV9pZCI6MywiY3JlYXRlZF9hdCI6IjIwMjUtMDQtMTVUMDQ6Mjk6NDIuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDI1LTA0LTE1VDA0OjI5OjQyLjAwMDAwMFoifQ==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "صفقة شراء معقمات",
+									"type": "text"
+								},
+								{
+									"key": "tender_number",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "شراء معقم من مناقصة نظرا لحاجة المشفى للمعقم",
+									"type": "text"
+								},
+								{
+									"key": "release_date",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "closing_date",
+									"value": "2025-05-24",
+									"type": "text"
+								},
+								{
+									"key": "budget",
+									"value": "1000",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "draft",
+									"type": "text"
+								},
+								{
+									"key": "barcode",
+									"value": "12345",
+									"type": "text"
+								},
+								{
+									"key": "category_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "item_id",
+									"value": "51",
+									"type": "text"
+								},
+								{
+									"key": "item_name",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "description",
+									"value": "شراء معقم من مناقصة نظرا لحاجة المشفى للمعقم",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "1500",
+									"type": "text"
+								},
+								{
+									"key": "unit",
+									"value": "قطعة",
+									"type": "text"
+								},
+								{
+									"key": "specifications",
+									"value": "معقم ذات كحول 100%",
+									"type": "text"
+								},
+								{
+									"key": "unit_price",
+									"value": "100",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/tender/add",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"tender",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Details",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6OSwibmFtZSI6IldhcmVIb3VzZSBEZXBhcnRtZW50IiwidHlwZV9pZCI6MywiY3JlYXRlZF9hdCI6IjIwMjUtMDQtMTVUMDQ6Mjk6NDIuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDI1LTA0LTE1VDA0OjI5OjQyLjAwMDAwMFoifQ==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "tender_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/tender/details",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"tender",
+								"details"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Tender",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6OSwibmFtZSI6IldhcmVIb3VzZSBEZXBhcnRtZW50IiwidHlwZV9pZCI6MywiY3JlYXRlZF9hdCI6IjIwMjUtMDQtMTVUMDQ6Mjk6NDIuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDI1LTA0LTE1VDA0OjI5OjQyLjAwMDAwMFoifQ==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "tender_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "tender_number",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "closing_date",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "budget",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "barcode",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "category_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "item_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "unit",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "specifications",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "unit_price",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/tender/ub",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"tender",
+								"ub"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Tender",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6OSwibmFtZSI6IldhcmVIb3VzZSBEZXBhcnRtZW50IiwidHlwZV9pZCI6MywiY3JlYXRlZF9hdCI6IjIwMjUtMDQtMTVUMDQ6Mjk6NDIuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDI1LTA0LTE1VDA0OjI5OjQyLjAwMDAwMFoifQ==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "tender_id",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/tender/show",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"tender",
+								"show"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete Tender",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6OSwibmFtZSI6IldhcmVIb3VzZSBEZXBhcnRtZW50IiwidHlwZV9pZCI6MywiY3JlYXRlZF9hdCI6IjIwMjUtMDQtMTVUMDQ6Mjk6NDIuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDI1LTA0LTE1VDA0OjI5OjQyLjAwMDAwMFoifQ==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "tender_id",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/tender/del",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"tender",
+								"del"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Status",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6OSwibmFtZSI6IldhcmVIb3VzZSBEZXBhcnRtZW50IiwidHlwZV9pZCI6MywiY3JlYXRlZF9hdCI6IjIwMjUtMDQtMTVUMDQ6Mjk6NDIuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDI1LTA0LTE1VDA0OjI5OjQyLjAwMDAwMFoifQ==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "tender_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "published",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/tender/ch/status",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"tender",
+								"ch",
+								"status"
 							]
 						}
 					},

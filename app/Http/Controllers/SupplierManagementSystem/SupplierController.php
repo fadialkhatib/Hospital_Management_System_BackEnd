@@ -10,45 +10,45 @@ class SupplierController extends Controller
 {
     public  function index()
     {
-        return response()->json(['message' => SupplierServices::index()]);
+        return response()->json(SupplierServices::index());
     }
 
     public  function getActiveSuppliers()
     {
-        return response()->json(['message' => SupplierServices::getActiveSuppliers()]);
+        return response()->json(SupplierServices::getActiveSuppliers());
     }
 
     public  function getNonActiveSuppliers()
     {
-        return response()->json(['message' => SupplierServices::getNonActiveSuppliers()]);
+        return response()->json(SupplierServices::getNonActiveSuppliers());
     }
 
     public  function addSupplier(Request $request)
     {
 
-        return response()->json(['message' => SupplierServices::addSupplier($request)]);
+        return response()->json(SupplierServices::addSupplier($request));
     }
 
     public  function updateSupplierinfo(Request $request)
     {
 
 
-        return response()->json(['message' => SupplierServices::updateSupplierinfo($request)]);
+        return response()->json(SupplierServices::updateSupplierinfo($request));
     }
 
     public  function approve(Request $request)
     {
-        return response()->json(['message' => SupplierServices::approve($request)]);
+        return response()->json(SupplierServices::approve($request));
     }
 
 
     public  function getSupplier(Request $request)
     {
-        return response()->json(['message' => SupplierServices::getSupplier($request)]);
+        return response()->json(SupplierServices::getSupplier($request));
     }
 
     public  function getSupplierItem(Request $request)
     {
-        return response()->json(['message' => SupplierServices::getSupplierItem($request)]);
+        return response()->json(SupplierServices::getSupplierItem($request));
     }
 }
