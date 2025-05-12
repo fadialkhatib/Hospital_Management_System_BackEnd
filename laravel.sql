@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 24 أبريل 2025 الساعة 16:55
+-- Generation Time: 12 مايو 2025 الساعة 20:07
 -- إصدار الخادم: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -40,9 +40,9 @@ CREATE TABLE `active_tokens` (
 --
 
 INSERT INTO `active_tokens` (`id`, `department_id`, `token`, `created_at`, `updated_at`) VALUES
-(2, 2, 'eyJpZCI6MiwibmFtZSI6IkFtYnVsYW5jZSIsInR5cGVfaWQiOjIsImNyZWF0ZWRfYXQiOiIyMDI1LTA0LTE1VDA0OjI5OjQxLjAwMDAwMFoiLCJ1cGRhdGVkX2F0IjoiMjAyNS0wNC0xNVQwNDoyOTo0MS4wMDAwMDBaIn0=', '2025-04-19 15:03:35', '2025-04-19 15:03:35'),
-(3, 4, 'eyJpZCI6NCwibmFtZSI6IkVtZXJnZW5jeVJhZGlvR3JhcGhlciIsInR5cGVfaWQiOjIsImNyZWF0ZWRfYXQiOiIyMDI1LTA0LTE1VDA0OjI5OjQxLjAwMDAwMFoiLCJ1cGRhdGVkX2F0IjoiMjAyNS0wNC0xNVQwNDoyOTo0MS4wMDAwMDBaIn0=', '2025-04-19 15:08:01', '2025-04-19 15:08:01'),
-(4, 9, 'eyJpZCI6OSwibmFtZSI6IldhcmVIb3VzZSBEZXBhcnRtZW50IiwidHlwZV9pZCI6MywiY3JlYXRlZF9hdCI6IjIwMjUtMDQtMTVUMDQ6Mjk6NDIuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDI1LTA0LTE1VDA0OjI5OjQyLjAwMDAwMFoifQ==', '2025-04-19 15:15:47', '2025-04-19 15:15:47');
+(1, 2, 'eyJpZCI6MiwibmFtZSI6IkFtYnVsYW5jZSIsInR5cGVfaWQiOjIsImNyZWF0ZWRfYXQiOiIyMDI1LTA0LTI5VDEzOjI2OjEwLjAwMDAwMFoiLCJ1cGRhdGVkX2F0IjoiMjAyNS0wNC0yOVQxMzoyNjoxMC4wMDAwMDBaIn0=', '2025-04-29 10:26:54', '2025-04-29 10:26:54'),
+(2, 9, 'eyJpZCI6OSwibmFtZSI6IldhcmVIb3VzZSBEZXBhcnRtZW50IiwidHlwZV9pZCI6MywiY3JlYXRlZF9hdCI6IjIwMjUtMDQtMjlUMTM6MjY6MTEuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDI1LTA0LTI5VDEzOjI2OjExLjAwMDAwMFoifQ==', '2025-04-29 10:27:21', '2025-04-29 10:27:21'),
+(3, 5, 'eyJpZCI6NSwibmFtZSI6IlJhZGlvR3JhcGhlciIsInR5cGVfaWQiOjQsImNyZWF0ZWRfYXQiOiIyMDI1LTA0LTI5VDEzOjI2OjEwLjAwMDAwMFoiLCJ1cGRhdGVkX2F0IjoiMjAyNS0wNC0yOVQxMzoyNjoxMC4wMDAwMDBaIn0=', '2025-04-29 10:29:40', '2025-04-29 10:29:40');
 
 -- --------------------------------------------------------
 
@@ -147,8 +147,7 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'Cleaner 1', 'clean', '2025-04-19 15:19:22', '2025-04-23 06:42:14'),
-(2, 'Cleaner', 'Clean and ta3keem', '2025-04-23 11:20:01', '2025-04-23 11:20:01');
+(1, 'Cleaner', 'Clean and ta3keem', '2025-04-29 10:27:32', '2025-04-29 10:27:32');
 
 -- --------------------------------------------------------
 
@@ -170,10 +169,10 @@ CREATE TABLE `cat_items` (
 --
 
 INSERT INTO `cat_items` (`id`, `category_id`, `sub_category_id`, `item_id`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 47, NULL, NULL),
-(2, 1, 1, 48, NULL, NULL),
-(3, 1, 1, 49, NULL, '2025-04-23 06:54:26'),
-(4, 1, 1, 51, NULL, NULL);
+(1, 1, 1, 3, NULL, NULL),
+(2, 1, 1, 4, NULL, NULL),
+(3, 1, 1, 5, NULL, NULL),
+(4, 1, 1, 6, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -251,16 +250,53 @@ CREATE TABLE `departments` (
 --
 
 INSERT INTO `departments` (`id`, `name`, `password`, `type_id`, `created_at`, `updated_at`) VALUES
-(1, 'ITAdmin', '$2y$10$yYeIc8HRfPESXiXLnfG.H.6G5cOmcB3TV3jzAYxzsuChJ.vK8UROe', 1, '2025-04-15 01:29:41', '2025-04-15 01:29:41'),
-(2, 'Ambulance', '$2y$10$zFZ0kwMlubzObIA3bekQ1eNVg9jWxGONz0dtSmY/pzIric9fcRO86', 2, '2025-04-15 01:29:41', '2025-04-15 01:29:41'),
-(3, 'DepartmentReception', '$2y$10$ZOKGr9tgbBYucOyvI7sU5eGWnGiTv6Pv8fAHOxEGnVQCumfWjz/kO', 4, '2025-04-15 01:29:41', '2025-04-15 01:29:41'),
-(4, 'EmergencyRadioGrapher', '$2y$10$H2yLC..B5Lj071YTGVUIU.bi5nRiFfc.wV/Ge4rIK0c6rREzUGcLe', 2, '2025-04-15 01:29:41', '2025-04-15 01:29:41'),
-(5, 'RadioGrapher', '$2y$10$ylr.ko/gkdhns4MEMeNA8.RdrK/l/UlSfitjho3LVsFvVFgWPiKny', 4, '2025-04-15 01:29:41', '2025-04-15 01:29:41'),
-(6, 'EmergencyTestLab', '$2y$10$vKUeL0ME0M8Im998ZlYAZu3eL7jjXGdlcmPZnDowgmK1gGmMeDX5G', 2, '2025-04-15 01:29:41', '2025-04-15 01:29:41'),
-(7, 'TestLab', '$2y$10$Gkd5Tv2WjkWZkRdy3YvbWeVusNSklqH5q.ScrVZAptd32TCYDTmCC', 4, '2025-04-15 01:29:41', '2025-04-15 01:29:41'),
-(8, 'AdmissionMonitor', '$2y$10$Hz8iapR9ggWivn.zdQIR9evb7R3EleQw07qaI3WuIcQtvqM06la7K', 1, '2025-04-15 01:29:41', '2025-04-15 01:29:41'),
-(9, 'WareHouse Department', '$2y$10$wGZInwNIHDZbzMxLLXo3SuApXT4lnyUcEF2lTLWTc7pZyorRJgWqq', 3, '2025-04-15 01:29:42', '2025-04-15 01:29:42'),
-(10, 'HR', '$2y$10$mr7gCR2m5zSnxf4GeCIZtO07nx2uJ7QrjeiKKefIahlvZbiRJirMG', 1, '2025-04-15 01:29:42', '2025-04-15 01:29:42');
+(1, 'ITAdmin', '$2y$10$47x4ZeU6z8RhEQFCjOJX5uRsZotg1tPcwXtnvWCm.FsSZDzmbKWNu', 1, '2025-04-29 10:26:10', '2025-04-29 10:26:10'),
+(2, 'Ambulance', '$2y$10$tUpTMQ.9t96cKZ5NdnyRaufApBfDYxNSglICm2gvRziIp7DY52ZGi', 2, '2025-04-29 10:26:10', '2025-04-29 10:26:10'),
+(3, 'DepartmentReception', '$2y$10$6JHxnk.y3JNmZ8a5gTBmue67FpkyuKWSDRvFz1Aadq28hGrZNEDvm', 4, '2025-04-29 10:26:10', '2025-04-29 10:26:10'),
+(4, 'EmergencyRadioGrapher', '$2y$10$m8z5KoDFYhhvbwZVKRJTU.mWX9I9cfWSVerskdbsa2wDNK.YND8Tu', 2, '2025-04-29 10:26:10', '2025-04-29 10:26:10'),
+(5, 'RadioGrapher', '$2y$10$9eL4.vb3.8xEn07g/rCJXOI54aRK.8Rqb/TzrIqbKxELJEvyPacJC', 4, '2025-04-29 10:26:10', '2025-04-29 10:26:10'),
+(6, 'EmergencyTestLab', '$2y$10$TKzHJpbvwORSEwomaFLdVO2wBpPR890pvFuMGIuAwdAilXi.6mfqK', 2, '2025-04-29 10:26:11', '2025-04-29 10:26:11'),
+(7, 'TestLab', '$2y$10$4T8La0eHithF5jpjyeuPye1hSHik9AGL5ViLMb4iikDknoYvsmO4O', 4, '2025-04-29 10:26:11', '2025-04-29 10:26:11'),
+(8, 'AdmissionMonitor', '$2y$10$.VNazNe1BJIK614wF68VNuz4dqJmrqGu36UJkA9L0W4u75jBYrqjq', 1, '2025-04-29 10:26:11', '2025-04-29 10:26:11'),
+(9, 'WareHouse Department', '$2y$10$g2ACenzAPUMdvjsym.Yo8e1F/A6dRP0F95n4cPZ8.zleZvN4NemH6', 3, '2025-04-29 10:26:11', '2025-04-29 10:26:11'),
+(10, 'HR', '$2y$10$NVAUv0A9/K6kk2n7J.8XzekkfTMiP2XNpKg6.GRzh6913njK3qhfK', 1, '2025-04-29 10:26:11', '2025-04-29 10:26:11');
+
+-- --------------------------------------------------------
+
+--
+-- بنية الجدول `department_requests`
+--
+
+CREATE TABLE `department_requests` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `department_id` bigint(20) UNSIGNED NOT NULL,
+  `status` enum('pending','approved','rejected','partially_approved') NOT NULL,
+  `notes` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- إرجاع أو استيراد بيانات الجدول `department_requests`
+--
+
+INSERT INTO `department_requests` (`id`, `department_id`, `status`, `notes`, `created_at`, `updated_at`) VALUES
+(1, 5, 'pending', 'adadada', '2025-04-29 10:30:20', '2025-04-29 10:30:20'),
+(2, 5, 'pending', 'adadada', '2025-04-29 10:31:50', '2025-04-29 10:31:50'),
+(20, 5, 'pending', NULL, '2025-04-29 11:12:22', '2025-04-29 11:12:22'),
+(21, 5, 'pending', NULL, '2025-04-29 11:13:11', '2025-04-29 11:13:11'),
+(22, 5, 'pending', NULL, '2025-04-29 11:14:06', '2025-04-29 11:14:06'),
+(23, 5, 'pending', NULL, '2025-04-29 11:14:33', '2025-04-29 11:14:33'),
+(26, 5, 'pending', NULL, '2025-04-29 11:18:16', '2025-04-29 11:18:16'),
+(31, 5, 'pending', NULL, '2025-04-29 11:27:33', '2025-04-29 11:27:33'),
+(32, 5, 'pending', NULL, '2025-04-29 11:30:05', '2025-04-29 11:30:05'),
+(33, 5, 'pending', NULL, '2025-04-29 11:30:24', '2025-04-29 11:30:24'),
+(34, 5, 'pending', NULL, '2025-04-29 11:34:25', '2025-04-29 11:34:25'),
+(35, 5, 'pending', NULL, '2025-05-10 05:33:26', '2025-05-10 05:33:26'),
+(36, 5, 'pending', NULL, '2025-05-10 06:45:18', '2025-05-10 06:45:18'),
+(37, 5, 'approved', NULL, '2025-05-10 07:21:07', '2025-05-10 07:57:17'),
+(38, 5, 'pending', NULL, '2025-05-10 07:35:59', '2025-05-10 07:35:59'),
+(39, 5, 'approved', NULL, '2025-05-10 08:04:16', '2025-05-10 08:04:52');
 
 -- --------------------------------------------------------
 
@@ -283,13 +319,6 @@ CREATE TABLE `empatients` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- إرجاع أو استيراد بيانات الجدول `empatients`
---
-
-INSERT INTO `empatients` (`id`, `full_name`, `address`, `date_of_birth`, `mom_name`, `chain`, `gender`, `chronic_diseases`, `blood_type`, `case_description`, `treatment_required`, `created_at`, `updated_at`) VALUES
-(1, 'أيهم القضماني', 'sweda', '2000-02-01 00:00:00', 'mom', 56, 'male', 'no', 'A+', 'عملية', 'فسم العمليات', '2025-04-19 15:05:24', '2025-04-19 15:05:24');
 
 -- --------------------------------------------------------
 
@@ -340,33 +369,6 @@ CREATE TABLE `em_xray_queues` (
 -- --------------------------------------------------------
 
 --
--- بنية الجدول `equipment`
---
-
-CREATE TABLE `equipment` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `description` text NOT NULL,
-  `quantity` int(11) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- بنية الجدول `equipment_store_keepers`
---
-
-CREATE TABLE `equipment_store_keepers` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- بنية الجدول `e_m_p_belong_tos`
 --
 
@@ -377,13 +379,6 @@ CREATE TABLE `e_m_p_belong_tos` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- إرجاع أو استيراد بيانات الجدول `e_m_p_belong_tos`
---
-
-INSERT INTO `e_m_p_belong_tos` (`id`, `patient_id`, `dep_id`, `created_at`, `updated_at`) VALUES
-(1, 1, 4, '2025-04-19 15:05:24', '2025-04-19 15:09:20');
 
 -- --------------------------------------------------------
 
@@ -399,13 +394,6 @@ CREATE TABLE `e_m_p_transfar_operations` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- إرجاع أو استيراد بيانات الجدول `e_m_p_transfar_operations`
---
-
-INSERT INTO `e_m_p_transfar_operations` (`id`, `patient_id`, `from_dep_id`, `to_dep_id`, `created_at`, `updated_at`) VALUES
-(1, 1, 2, 4, '2025-04-19 15:09:20', '2025-04-19 15:09:20');
 
 -- --------------------------------------------------------
 
@@ -473,10 +461,12 @@ CREATE TABLE `inventory_logs` (
 --
 
 INSERT INTO `inventory_logs` (`id`, `item_id`, `department_id`, `action_type`, `quantity`, `unit_cost`, `total_cost`, `reference_type`, `reference_id`, `batch_number`, `expiry_date`, `notes`, `created_at`, `updated_at`) VALUES
-(1, 47, 9, 'adjustment', 10, 14000.000, 0.000, 'App\\Models\\Item', 47, NULL, NULL, 'no notes', '2025-04-19 17:11:58', '2025-04-19 17:11:58'),
-(2, 48, 9, 'adjustment', 10, 14000.000, 0.000, '1', 48, NULL, NULL, 'no notes', '2025-04-19 17:15:31', '2025-04-19 17:15:31'),
-(3, 49, 9, 'adjustment', 10, 14000.000, 0.000, 'App\\Models\\Item', 49, NULL, NULL, 'no notes', '2025-04-23 06:07:09', '2025-04-23 06:54:26'),
-(4, 51, 9, 'purchase', 10, 14000.000, 0.000, 'App\\Models\\Item', 51, NULL, NULL, 'يحفظ بعيدا عن متناول الأطفال . للاستعمال الخارجي فقط', '2025-04-23 11:22:31', '2025-04-23 11:22:31');
+(1, 3, 9, 'purchase', 10, 14000.000, 0.000, 'App\\Models\\Item', 3, NULL, NULL, 'جلب للمستودع : Detool, الكمية :10', '2025-04-29 10:28:50', '2025-04-29 10:28:50'),
+(2, 4, 9, 'purchase', 10, 14000.000, 0.000, 'App\\Models\\Item', 4, NULL, NULL, 'جلب للمستودع : Detool, الكمية :10', '2025-04-29 10:31:29', '2025-04-29 10:31:29'),
+(3, 5, 9, 'purchase', 10, 14000.000, 0.000, 'App\\Models\\Item', 5, NULL, NULL, 'جلب للمستودع : Detool, الكمية :10', '2025-04-29 10:36:22', '2025-04-29 10:36:22'),
+(4, 6, 9, 'purchase', 10, 14000.000, 0.000, 'App\\Models\\Item', 6, NULL, NULL, 'جلب للمستودع : Detool, الكمية :10', '2025-04-29 10:44:05', '2025-04-29 10:44:05'),
+(16, 6, 5, 'transfer', -9, NULL, NULL, 'App\\Models\\Department_request', 37, NULL, NULL, 'صرف للقسم: RadioGrapher', '2025-05-10 07:57:17', '2025-05-10 07:57:17'),
+(17, 5, 5, 'transfer', -9, NULL, NULL, 'App\\Models\\Department_request', 39, NULL, NULL, 'صرف للقسم: RadioGrapher', '2025-05-10 08:04:52', '2025-05-10 08:04:52');
 
 -- --------------------------------------------------------
 
@@ -507,24 +497,26 @@ CREATE TABLE `items` (
 --
 
 INSERT INTO `items` (`id`, `name`, `code`, `description`, `barcode`, `qr_code_path`, `unit`, `weight`, `current_quantity`, `min_quantity`, `cost`, `is_expirable`, `supplier_id`, `created_at`, `updated_at`) VALUES
-(33, 'ww', 'aaa12469999991111111111111111', 'afafeaf', '123456789999991111111111111111q', '123', 'dazina', 12.000, 10, '2', 14000.000, 0, 1, '2025-04-19 16:41:34', '2025-04-19 16:41:34'),
-(34, 'ww', 'aaa124699999911111111111111111', 'afafeaf', '123456789999991111111111111111q1', '123', 'dazina', 12.000, 10, '2', 14000.000, 0, 1, '2025-04-19 16:42:25', '2025-04-19 16:42:25'),
-(35, 'ww', 'aaa1246999999111111111111111111', 'afafeaf', '123456789999991111111111111111q11', '123', 'dazina', 12.000, 10, '2', 14000.000, 0, 1, '2025-04-19 16:45:19', '2025-04-19 16:45:19'),
-(36, 'ww', 'aaa12469999991111111111111111111', 'afafeaf', '123456789999991111111111111111q111', '123', 'dazina', 12.000, 10, '2', 14000.000, 0, 1, '2025-04-19 16:49:23', '2025-04-19 16:49:23'),
-(37, 'ww', 'aaa124699999911111111111111111111', 'afafeaf', '123456789999991111111111111111q1111', '123', 'dazina', 12.000, 10, '2', 14000.000, 0, 1, '2025-04-19 16:51:11', '2025-04-19 16:51:11'),
-(38, 'ww', 'aaa1246999999111111111111111111111', 'afafeaf', '123456789999991111111111111111q11111', '123', 'dazina', 12.000, 10, '2', 14000.000, 0, 1, '2025-04-19 16:53:04', '2025-04-19 16:53:04'),
-(39, 'ww', 'aaa12469999991111111111111111111111', 'afafeaf', '123456789999991111111111111111q111111', '123', 'dazina', 12.000, 10, '2', 14000.000, 0, 1, '2025-04-19 16:56:06', '2025-04-19 16:56:06'),
-(40, 'ww', 'aaa124699999911111111111111111111111', 'afafeaf', '123456789999991111111111111111q1111111', '123', 'dazina', 12.000, 10, '2', 14000.000, 0, 1, '2025-04-19 16:56:56', '2025-04-19 16:56:56'),
-(41, 'ww', 'aaa1246999999111111111111111111111111', 'afafeaf', '123456789999991111111111111111q11111111', '123', 'dazina', 12.000, 10, '2', 14000.000, 0, 1, '2025-04-19 17:04:45', '2025-04-19 17:04:45'),
-(42, 'ww', 'aaa12469999991111111111111111111111111', 'afafeaf', '123456789999991111111111111111q111111111', '123', 'dazina', 12.000, 10, '2', 14000.000, 0, 1, '2025-04-19 17:05:15', '2025-04-19 17:05:15'),
-(43, 'ww', 'aaa124699999911111111111111111111111111', 'afafeaf', '123456789999991111111111111111q1111111111', '123', 'dazina', 12.000, 10, '2', 14000.000, 0, 1, '2025-04-19 17:06:55', '2025-04-19 17:06:55'),
-(44, 'ww', 'aaa1246999999111111111111111111111111111', 'afafeaf', '123456789999991111111111111111q11111111111', '123', 'dazina', 12.000, 10, '2', 14000.000, 0, 1, '2025-04-19 17:07:55', '2025-04-19 17:07:55'),
-(45, 'ww', 'aaa12469999991111111111111111111111111111', 'afafeaf', '123456789999991111111111111111q111111111111', '123', 'dazina', 12.000, 10, '2', 14000.000, 0, 1, '2025-04-19 17:10:08', '2025-04-19 17:10:08'),
-(46, 'ww', 'aaa124699999911111111111111111111111111111', 'afafeaf', '123456789999991111111111111111q1111111111111', '123', 'dazina', 12.000, 10, '2', 14000.000, 0, 1, '2025-04-19 17:11:23', '2025-04-19 17:11:23'),
-(47, 'ww', 'aaa1246999999111111111111111111111111111111', 'afafeaf', '123456789999991111111111111111q11111111111111', '123', 'dazina', 12.000, 10, '2', 14000.000, 0, 1, '2025-04-19 17:11:58', '2025-04-19 17:11:58'),
-(48, 'ww', 'aaa12469999991111111111111111111111111111111', 'afafeaf', '123456789999991111111111111111q111111111111111', '123', 'dazina', 12.000, 10, '2', 14000.000, 0, 1, '2025-04-19 17:15:31', '2025-04-19 17:15:31'),
-(49, 'Detol', '33441122', '99% of mecrops will be destroied', '1', '123', 'dazina', 12.000, 10, '2', 14000.000, 0, 1, '2025-04-23 06:07:09', '2025-04-23 06:54:26'),
-(51, 'Detool', '145325', 'Soap to clean and destroy all viruses', '145325', '123', 'dazina', 12.000, 10, '2', 14000.000, 0, 1, '2025-04-23 11:22:31', '2025-04-23 11:22:31');
+(3, 'Detool', '145325', 'Soap to clean and destroy all viruses', '145325', '123', 'dazina', 12.000, 10, '2', 14000.000, 0, 1, '2025-04-29 10:28:50', '2025-04-29 10:28:50'),
+(4, 'Detool', '1453251', 'Soap to clean and destroy all viruses', '1453251', '123', 'dazina', 12.000, 10, '2', 14000.000, 0, 1, '2025-04-29 10:31:29', '2025-04-29 10:31:29'),
+(5, 'Detool', '14532511', 'Soap to clean and destroy all viruses', '14532511', '123', 'dazina', 12.000, 1, '2', 14000.000, 0, 1, '2025-04-29 10:36:22', '2025-05-10 08:04:52'),
+(6, 'Detool', '145325111', 'Soap to clean and destroy all viruses', '145325111', '123', 'dazina', 12.000, 1, '2', 14000.000, 0, 1, '2025-04-29 10:44:05', '2025-05-10 07:57:17');
+
+-- --------------------------------------------------------
+
+--
+-- بنية الجدول `jobs`
+--
+
+CREATE TABLE `jobs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `queue` varchar(255) NOT NULL,
+  `payload` longtext NOT NULL,
+  `attempts` tinyint(3) UNSIGNED NOT NULL,
+  `reserved_at` int(10) UNSIGNED DEFAULT NULL,
+  `available_at` int(10) UNSIGNED NOT NULL,
+  `created_at` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -582,24 +574,24 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (23, '2024_05_14_083822_create_deaths_table', 1),
 (24, '2024_05_14_083849_create_borns_table', 1),
 (25, '2024_05_14_085106_create_births_table', 1),
-(26, '2024_05_14_145402_create_resources_table', 1),
-(27, '2024_05_15_115534_create_equipment_store_keepers_table', 1),
-(28, '2024_05_15_115637_create_equipment_table', 1),
-(29, '2024_05_23_072116_create_dates_table', 1),
-(30, '2024_06_19_071531_create_surgeries_table', 1),
-(31, '2025_04_01_190416_create_categories_table', 1),
-(32, '2025_04_01_190922_create_sub_categories_table', 1),
-(33, '2025_04_01_191245_create_suppliers_table', 1),
-(34, '2025_04_01_191833_create_items_table', 1),
-(35, '2025_04_01_192846_create_cat_items_table', 1),
-(36, '2025_04_01_194528_create_tenders_table', 1),
-(37, '2025_04_01_200005_create_tender_items_table', 1),
-(38, '2025_04_01_200925_create_bids_table', 1),
-(39, '2025_04_01_201751_create_bid_items_table', 1),
-(40, '2025_04_01_202141_create_contracts_table', 1),
-(41, '2025_04_01_202852_create_inventory_logs_table', 1),
-(42, '2025_04_01_202928_create_receipts_table', 1),
-(43, '2025_04_01_203000_create_receipt_items_table', 1);
+(26, '2024_05_23_072116_create_dates_table', 1),
+(27, '2024_06_19_071531_create_surgeries_table', 1),
+(28, '2025_04_01_190416_create_categories_table', 1),
+(29, '2025_04_01_190922_create_sub_categories_table', 1),
+(30, '2025_04_01_191245_create_suppliers_table', 1),
+(31, '2025_04_01_191833_create_items_table', 1),
+(32, '2025_04_01_192846_create_cat_items_table', 1),
+(33, '2025_04_01_194528_create_tenders_table', 1),
+(34, '2025_04_01_200005_create_tender_items_table', 1),
+(35, '2025_04_01_200925_create_bids_table', 1),
+(36, '2025_04_01_201751_create_bid_items_table', 1),
+(37, '2025_04_01_202141_create_contracts_table', 1),
+(38, '2025_04_01_202852_create_inventory_logs_table', 1),
+(39, '2025_04_01_202928_create_receipts_table', 1),
+(40, '2025_04_01_203000_create_receipt_items_table', 1),
+(41, '2025_04_29_084141_create_department_requests_table', 1),
+(42, '2025_04_29_084512_create_request_items_table', 1),
+(43, '2025_04_29_123904_create_jobs_table', 1);
 
 -- --------------------------------------------------------
 
@@ -728,19 +720,41 @@ CREATE TABLE `receipt_items` (
 -- --------------------------------------------------------
 
 --
--- بنية الجدول `resources`
+-- بنية الجدول `request_items`
 --
 
-CREATE TABLE `resources` (
+CREATE TABLE `request_items` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `end_date` varchar(255) NOT NULL,
-  `company` varchar(255) NOT NULL,
-  `quantity` int(11) NOT NULL,
-  `availability_status` tinyint(1) NOT NULL DEFAULT 1,
+  `request_id` bigint(20) UNSIGNED NOT NULL,
+  `item_id` bigint(20) UNSIGNED NOT NULL,
+  `requested_quantity` int(11) NOT NULL DEFAULT 0,
+  `approved_quantity` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- إرجاع أو استيراد بيانات الجدول `request_items`
+--
+
+INSERT INTO `request_items` (`id`, `request_id`, `item_id`, `requested_quantity`, `approved_quantity`, `created_at`, `updated_at`) VALUES
+(1, 1, 3, 10, NULL, '2025-04-29 10:30:21', '2025-04-29 10:30:21'),
+(3, 2, 4, 10, NULL, '2025-04-29 10:31:50', '2025-04-29 10:31:50'),
+(4, 2, 3, 0, NULL, NULL, NULL),
+(24, 20, 6, 10, NULL, '2025-04-29 11:12:22', '2025-04-29 11:12:22'),
+(25, 21, 6, 10, NULL, '2025-04-29 11:13:11', '2025-04-29 11:13:11'),
+(26, 22, 6, 10, NULL, '2025-04-29 11:14:06', '2025-04-29 11:14:06'),
+(27, 23, 6, 10, NULL, '2025-04-29 11:14:33', '2025-04-29 11:14:33'),
+(29, 26, 6, 10, NULL, '2025-04-29 11:18:16', '2025-04-29 11:18:16'),
+(32, 31, 6, 10, NULL, '2025-04-29 11:27:33', '2025-04-29 11:27:33'),
+(33, 32, 6, 10, NULL, '2025-04-29 11:30:05', '2025-04-29 11:30:05'),
+(34, 33, 6, 10, NULL, '2025-04-29 11:30:24', '2025-04-29 11:30:24'),
+(35, 34, 6, 10, NULL, '2025-04-29 11:34:25', '2025-04-29 11:34:25'),
+(36, 35, 6, 10, NULL, '2025-05-10 05:33:26', '2025-05-10 05:33:26'),
+(37, 36, 6, 10, NULL, '2025-05-10 06:45:18', '2025-05-10 06:45:18'),
+(38, 37, 6, 10, 9, '2025-05-10 07:21:07', '2025-05-10 07:57:17'),
+(39, 38, 6, 10, NULL, '2025-05-10 07:35:59', '2025-05-10 07:35:59'),
+(40, 39, 5, 10, 9, '2025-05-10 08:04:16', '2025-05-10 08:04:52');
 
 -- --------------------------------------------------------
 
@@ -761,17 +775,17 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `MACadress`, `sessionKey`, `created_at`, `updated_at`) VALUES
-(1, '00:00:00:00:00:00', '', '2025-04-15 01:29:42', '2025-04-15 01:29:42'),
-(2, '22:22:22:22:22:22', '', '2025-04-15 01:29:42', '2025-04-15 01:29:42'),
-(3, '33:33:33:33:33:33', '', '2025-04-15 01:29:42', '2025-04-15 01:29:42'),
-(4, '44:44:44:44:44:44', '', '2025-04-15 01:29:42', '2025-04-15 01:29:42'),
-(5, '55:55:55:55:55:55', '', '2025-04-15 01:29:42', '2025-04-15 01:29:42'),
-(6, '66:66:66:66:66:66', '', '2025-04-15 01:29:42', '2025-04-15 01:29:42'),
-(7, '77:77:77:77:77:77', '', '2025-04-15 01:29:42', '2025-04-15 01:29:42'),
-(8, '88:88:88:88:88:88', '', '2025-04-15 01:29:42', '2025-04-15 01:29:42'),
-(9, '99:99:99:99:99:99', '', '2025-04-15 01:29:42', '2025-04-15 01:29:42'),
-(10, '10:10:10:10:10:10', '', '2025-04-15 01:29:42', '2025-04-15 01:29:42'),
-(11, '11:11:11:11:11:11', '', '2025-04-15 01:29:42', '2025-04-15 01:29:42');
+(1, '00:00:00:00:00:00', '', '2025-04-29 10:26:11', '2025-04-29 10:26:11'),
+(2, '22:22:22:22:22:22', '', '2025-04-29 10:26:11', '2025-04-29 10:26:11'),
+(3, '33:33:33:33:33:33', '', '2025-04-29 10:26:11', '2025-04-29 10:26:11'),
+(4, '44:44:44:44:44:44', '', '2025-04-29 10:26:11', '2025-04-29 10:26:11'),
+(5, '55:55:55:55:55:55', '', '2025-04-29 10:26:11', '2025-04-29 10:26:11'),
+(6, '66:66:66:66:66:66', '', '2025-04-29 10:26:11', '2025-04-29 10:26:11'),
+(7, '77:77:77:77:77:77', '', '2025-04-29 10:26:11', '2025-04-29 10:26:11'),
+(8, '88:88:88:88:88:88', '', '2025-04-29 10:26:11', '2025-04-29 10:26:11'),
+(9, '99:99:99:99:99:99', '', '2025-04-29 10:26:11', '2025-04-29 10:26:11'),
+(10, '10:10:10:10:10:10', '', '2025-04-29 10:26:11', '2025-04-29 10:26:11'),
+(11, '11:11:11:11:11:11', '', '2025-04-29 10:26:11', '2025-04-29 10:26:11');
 
 -- --------------------------------------------------------
 
@@ -791,8 +805,7 @@ CREATE TABLE `sub_categories` (
 --
 
 INSERT INTO `sub_categories` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'Cl', '2025-04-19 15:21:13', '2025-04-23 06:16:58'),
-(2, 'Soap', '2025-04-23 11:20:30', '2025-04-23 11:20:30');
+(1, 'Soap', '2025-04-29 10:27:45', '2025-04-29 10:27:45');
 
 -- --------------------------------------------------------
 
@@ -819,9 +832,7 @@ CREATE TABLE `suppliers` (
 --
 
 INSERT INTO `suppliers` (`id`, `name`, `commerical_number`, `type`, `address`, `email`, `is_approved`, `notes`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 'ffdd', '12345', 'government', 'wwweee', 'aa@gmail.com', 1, 'aefqefeafafaefeaf', NULL, '2025-04-19 15:32:08', '2025-04-19 15:32:08'),
-(2, 'فادي الخطيب', '3343', 'local', 'Alswaidaa', 'Fadi@gmail.com', 0, 'تغير كل من الايميل والموثوقية والرقم التجاري و النوع', NULL, '2025-04-19 15:32:39', '2025-04-24 10:50:31'),
-(3, 'ffdd', '12345', 'government', 'wwweee', 'aa@gmail.com', 1, 'aefqefeafafaefeaf', NULL, '2025-04-24 11:00:21', '2025-04-24 11:00:21');
+(1, 'ffdd', '12345', 'government', 'wwweee', 'aa@gmail.com', 1, 'aefqefeafafaefeaf', NULL, '2025-04-29 10:28:44', '2025-04-29 10:28:44');
 
 -- --------------------------------------------------------
 
@@ -858,13 +869,6 @@ CREATE TABLE `tenders` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- إرجاع أو استيراد بيانات الجدول `tenders`
---
-
-INSERT INTO `tenders` (`id`, `title`, `tender_number`, `description`, `release_date`, `closing_date`, `budget`, `status`, `barcode`, `category_id`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 'صفقة شراء معقمات', '1', 'شراء معقم من مناقصة نظرا لحاجة المشفى للمعقم', '2025-04-24', '2025-05-24', 1000.00, 'published', '12345', 2, NULL, '2025-04-24 11:30:39', '2025-04-24 11:53:09');
-
 -- --------------------------------------------------------
 
 --
@@ -885,13 +889,6 @@ CREATE TABLE `tender_items` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- إرجاع أو استيراد بيانات الجدول `tender_items`
---
-
-INSERT INTO `tender_items` (`id`, `tender_id`, `item_id`, `item_name`, `description`, `quantity`, `unit`, `specifications`, `unit_price`, `total_price`, `created_at`, `updated_at`) VALUES
-(1, 1, 51, 'Detool', 'شراء معقم من مناقصة نظرا لحاجة المشفى للمعقم', 1500, 'قطعة', 'معقم ذات كحول 100%', 100.000, 150000.000, '2025-04-24 11:30:39', '2025-04-24 11:30:39');
 
 -- --------------------------------------------------------
 
@@ -939,10 +936,10 @@ CREATE TABLE `types` (
 --
 
 INSERT INTO `types` (`id`, `type`, `created_at`, `updated_at`) VALUES
-(1, 'ITAdmin', '2025-04-15 01:29:41', '2025-04-15 01:29:41'),
-(2, 'Emergency Department', '2025-04-15 01:29:41', '2025-04-15 01:29:41'),
-(3, 'WareHouse Department', '2025-04-15 01:29:41', '2025-04-15 01:29:41'),
-(4, 'Normal Department', '2025-04-15 01:29:41', '2025-04-15 01:29:41');
+(1, 'ITAdmin', '2025-04-29 10:26:10', '2025-04-29 10:26:10'),
+(2, 'Emergency Department', '2025-04-29 10:26:10', '2025-04-29 10:26:10'),
+(3, 'WareHouse Department', '2025-04-29 10:26:10', '2025-04-29 10:26:10'),
+(4, 'Normal Department', '2025-04-29 10:26:10', '2025-04-29 10:26:10');
 
 -- --------------------------------------------------------
 
@@ -1047,6 +1044,13 @@ ALTER TABLE `departments`
   ADD KEY `departments_type_id_foreign` (`type_id`);
 
 --
+-- Indexes for table `department_requests`
+--
+ALTER TABLE `department_requests`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `department_requests_department_id_foreign` (`department_id`);
+
+--
 -- Indexes for table `empatients`
 --
 ALTER TABLE `empatients`
@@ -1072,18 +1076,6 @@ ALTER TABLE `em_test_queues`
 ALTER TABLE `em_xray_queues`
   ADD PRIMARY KEY (`id`),
   ADD KEY `em_xray_queues_patient_id_foreign` (`patient_id`);
-
---
--- Indexes for table `equipment`
---
-ALTER TABLE `equipment`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `equipment_store_keepers`
---
-ALTER TABLE `equipment_store_keepers`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `e_m_p_belong_tos`
@@ -1134,6 +1126,13 @@ ALTER TABLE `items`
   ADD UNIQUE KEY `items_barcode_unique` (`barcode`),
   ADD KEY `items_supplier_id_foreign` (`supplier_id`),
   ADD KEY `is_expirable` (`min_quantity`);
+
+--
+-- Indexes for table `jobs`
+--
+ALTER TABLE `jobs`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `jobs_queue_index` (`queue`);
 
 --
 -- Indexes for table `logins`
@@ -1202,10 +1201,12 @@ ALTER TABLE `receipt_items`
   ADD KEY `receipt_items_item_id_foreign` (`item_id`);
 
 --
--- Indexes for table `resources`
+-- Indexes for table `request_items`
 --
-ALTER TABLE `resources`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `request_items`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `request_items_request_id_foreign` (`request_id`),
+  ADD KEY `request_items_item_id_foreign` (`item_id`);
 
 --
 -- Indexes for table `sessions`
@@ -1284,7 +1285,7 @@ ALTER TABLE `xrayqueues`
 -- AUTO_INCREMENT for table `active_tokens`
 --
 ALTER TABLE `active_tokens`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `belong_to_deps`
@@ -1320,7 +1321,7 @@ ALTER TABLE `borns`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `cat_items`
@@ -1353,10 +1354,16 @@ ALTER TABLE `departments`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
+-- AUTO_INCREMENT for table `department_requests`
+--
+ALTER TABLE `department_requests`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+
+--
 -- AUTO_INCREMENT for table `empatients`
 --
 ALTER TABLE `empatients`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `em_archives`
@@ -1377,28 +1384,16 @@ ALTER TABLE `em_xray_queues`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `equipment`
---
-ALTER TABLE `equipment`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `equipment_store_keepers`
---
-ALTER TABLE `equipment_store_keepers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `e_m_p_belong_tos`
 --
 ALTER TABLE `e_m_p_belong_tos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `e_m_p_transfar_operations`
 --
 ALTER TABLE `e_m_p_transfar_operations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -1416,13 +1411,19 @@ ALTER TABLE `filesarchives`
 -- AUTO_INCREMENT for table `inventory_logs`
 --
 ALTER TABLE `inventory_logs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'المعرف الفريد للحركة', AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'المعرف الفريد للحركة', AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `jobs`
+--
+ALTER TABLE `jobs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `logins`
@@ -1473,10 +1474,10 @@ ALTER TABLE `receipt_items`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'المعرف الفريد لبند الاستلام';
 
 --
--- AUTO_INCREMENT for table `resources`
+-- AUTO_INCREMENT for table `request_items`
 --
-ALTER TABLE `resources`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE `request_items`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `sessions`
@@ -1488,13 +1489,13 @@ ALTER TABLE `sessions`
 -- AUTO_INCREMENT for table `sub_categories`
 --
 ALTER TABLE `sub_categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `suppliers`
 --
 ALTER TABLE `suppliers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `surgeries`
@@ -1506,13 +1507,13 @@ ALTER TABLE `surgeries`
 -- AUTO_INCREMENT for table `tenders`
 --
 ALTER TABLE `tenders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tender_items`
 --
 ALTER TABLE `tender_items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `testqueues`
@@ -1583,6 +1584,12 @@ ALTER TABLE `contracts`
 --
 ALTER TABLE `departments`
   ADD CONSTRAINT `departments_type_id_foreign` FOREIGN KEY (`type_id`) REFERENCES `types` (`id`) ON DELETE CASCADE;
+
+--
+-- قيود الجداول `department_requests`
+--
+ALTER TABLE `department_requests`
+  ADD CONSTRAINT `department_requests_department_id_foreign` FOREIGN KEY (`department_id`) REFERENCES `departments` (`id`);
 
 --
 -- قيود الجداول `em_test_queues`
@@ -1662,6 +1669,13 @@ ALTER TABLE `receipt_items`
   ADD CONSTRAINT `receipt_items_item_id_foreign` FOREIGN KEY (`item_id`) REFERENCES `items` (`id`),
   ADD CONSTRAINT `receipt_items_receipt_id_foreign` FOREIGN KEY (`receipt_id`) REFERENCES `receipts` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `receipt_items_tender_item_id_foreign` FOREIGN KEY (`tender_item_id`) REFERENCES `tender_items` (`id`);
+
+--
+-- قيود الجداول `request_items`
+--
+ALTER TABLE `request_items`
+  ADD CONSTRAINT `request_items_item_id_foreign` FOREIGN KEY (`item_id`) REFERENCES `items` (`id`),
+  ADD CONSTRAINT `request_items_request_id_foreign` FOREIGN KEY (`request_id`) REFERENCES `department_requests` (`id`);
 
 --
 -- قيود الجداول `surgeries`

@@ -14,7 +14,6 @@ class Inventory_log extends Model
 
     protected $fillable = [
         'item_id',
-        'user_id',
         'action_type',
         'quantity',
         'unit_cost',

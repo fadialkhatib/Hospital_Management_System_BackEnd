@@ -5,13 +5,19 @@ namespace App\Services\WareHouseManagementSystem;
 use App\Events\InventoryChanged;
 use App\Models\Cat_item;
 use App\Models\Category;
+use App\Models\Department;
+use App\Models\Department_request;
 use App\Models\Inventory_log;
 use App\Models\Item;
 use App\Models\Sub_category;
 use App\Models\Supplier;
 use App\Models\Tender;
+use App\Notifications\RequestApproved;
 use Illuminate\Http\Request;
-
+use Illuminate\Notifications\Notification;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Notification as FacadesNotification;
 
 class WareHouseServices
 {
@@ -120,7 +126,7 @@ class WareHouseServices
                         'total_cost' => (float)$create->cost * (float)$create->unit,
                         'reference_type' => Item::class,
                         'reference_id' => $create->id,
-                        'notes' => $request->notes,
+                        'notes' => "جلب للمستودع : {$create->name}, الكمية :{$create->current_quantity}",
                         'department_id' => $token->id
                 ]);
 
@@ -275,6 +281,132 @@ class WareHouseServices
                         ]);
                 } catch (\Exception $e) {
                         return response()->json(['success' => false, 'message' => $e->getMessage()]);
+                }
+        }
+
+        public static function processItemTransfer($requestItem)
+        {
+                DB::beginTransaction();
+                try {
+                        // تحميل العلاقات مسبقاً
+                        $requestItem->load(['item', 'request.department']);
+
+                        // التحقق من وجود البيانات
+                        if (!$requestItem->item) {
+                                throw new \Exception("المادة غير موجودة في المستودع");
+                        }
+
+                        if (!$requestItem->request) {
+                                throw new \Exception("طلب القسم غير موجود");
+                        }
+
+                        // الخصم من المخزون
+                        $affectedRows = Item::where('id', $requestItem->item_id)
+                                ->where('current_quantity', '>=', $requestItem->approved_quantity)
+                                ->decrement('current_quantity', $requestItem->approved_quantity);
+
+                        if ($affectedRows === 0) {
+                                throw new \Exception("فشل في خصم الكمية: إما أن المادة غير موجودة أو الكمية غير كافية");
+                        }
+
+                        // تسجيل حركة المخزون
+                        Inventory_log::create([
+                                'item_id' => $requestItem->item_id,
+                                'department_id' => $requestItem->request->department_id,
+                                'action_type' => 'transfer',
+                                'quantity' => -$requestItem->approved_quantity,
+                                'reference_type' => Department_request::class,
+                                'reference_id' => $requestItem->request_id,
+                                'notes' => "صرف للقسم: " . $requestItem->request->department->name
+                        ]);
+
+                        DB::commit();
+                } catch (\Exception $e) {
+                        DB::rollBack();
+                        logger()->error("خطأ في عملية التحويل: " . $e->getMessage());
+                        throw $e;
+                }
+        }
+
+
+        public static function approve(Request $request)
+        {
+                DB::beginTransaction();
+
+                try {
+                        // 1. التحقق من البيانات
+                        $validated = $request->validate([
+                                'request_id' => 'required|exists:department_requests,id',
+                                'approved_quantity' => 'required|integer|min:1'
+                        ]);
+
+                        // 2. جلب الطلب مع العناصر (مع التحقق من الوجود)
+                        $departmentRequest = Department_request::with(['itemss'])
+                                ->findOrFail($validated['request_id']);
+                        // 3. التحقق من وجود العناصر
+                        if (!$departmentRequest->itemss) {
+                                throw new \Exception('لا توجد عناصر في هذا الطلب');
+                        }
+                        $requestItem = $departmentRequest->itemss->first();
+                        $item = $requestItem->item;
+                        if ($item->current_quantity < $validated['approved_quantity']) {
+                                DB::rollBack();
+                                return response()->json([
+                                        'success' => false,
+                                        'message' => 'مرفوض: المخزون غير كافي',
+                                        'data' => [
+                                                'requested_quantity' => $requestItem->requested_quantity,
+                                                'approved_quantity' => $validated['approved_quantity'],
+                                                'current_stock' => $item->current_quantity,
+                                                'needed' => $validated['approved_quantity'] - $item->current_quantity
+                                        ]
+                                ], 422);
+                        }
+
+                        // 4. معالجة كل عنصر
+                        foreach ($departmentRequest->itemss as $item) {
+                                // التحقق من الكمية
+                                if ($validated['approved_quantity'] > $item->item->current_quantity) {
+                                        throw new \Exception(
+                                                "الكمية المعتمدة تتجاوز المخزون للمادة ID: {$item->item_id}"
+                                        );
+                                }
+
+                                // تحديث الكمية المعتمدة
+                                $item->update([
+                                        'approved_quantity' => $validated['approved_quantity']
+                                ]);
+
+                                // إذا كانت الكمية > 0، قم بالتحويل
+                                if ($validated['approved_quantity'] > 0) {
+                                        static::processItemTransfer($item);
+                                }
+                        }
+
+                        // 5. تحديث حالة الطلب
+                        $departmentRequest->update(['status' => 'approved']);
+
+                        DB::commit();
+
+                        return response()->json([
+                                'success' => true,
+                                'message' => 'تمت الموافقة بنجاح',
+                                'data' => $departmentRequest
+                        ]);
+                } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+                        DB::rollBack();
+                        return response()->json([
+                                'success' => false,
+                                'message' => 'طلب القسم غير موجود',
+                                'error' => $e->getMessage()
+                        ], 404);
+                } catch (\Exception $e) {
+                        DB::rollBack();
+                        return response()->json([
+                                'success' => false,
+                                'message' => 'فشل في الموافقة على الطلب',
+                                'error' => $e->getMessage()
+                        ], 500);
                 }
         }
 }

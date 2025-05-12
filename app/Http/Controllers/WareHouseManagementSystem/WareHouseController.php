@@ -105,4 +105,9 @@ class WareHouseController extends Controller
         {
                 return response()->json(WareHouseServices::Search($request));
         }
+
+        public function approve(Request $request)
+        {
+                return response()->json(WareHouseServices::approve($request));
+        }
 }

@@ -18,6 +18,7 @@ use App\Http\Controllers\TenderManagementSystem\BidController;
 use App\Http\Controllers\TenderManagementSystem\TenderController;
 use App\Http\Controllers\WareHouseManagementSystem\LogController;
 use App\Http\Controllers\WareHouseManagementSystem\WareHouseController;
+use App\Http\Middleware\CheckStock;
 use App\Models\Department;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -109,6 +110,7 @@ Route::group(['middleware' => 'myauth'], function () {
             Route::delete('/del/sub', [WareHouseController::class, 'delete_subcategory']);
             Route::delete('/del/item', [WareHouseController::class, 'delete_item']);
             Route::post('/search', [WareHouseController::class, 'Search']);
+            Route::post('/approve', [WareHouseController::class, 'approve'])->middleware(CheckStock::class);
         });
 
 
@@ -301,4 +303,7 @@ Route::group(['middleware' => 'myauth'], function () {
         Route::get('/emall', 'em_surgey_queue');
         Route::post('/emqueue', 'get_emp_from_surgeryqueue');
     });
+
+
+    Route::post('/dep/add', [DepartmentController::class, 'new_request']);
 });

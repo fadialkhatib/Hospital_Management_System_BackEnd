@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Requests\CheckStockRequest;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -67,6 +68,7 @@ class Kernel extends HttpKernel
         'ITAdmin' => \App\Http\Middleware\EmegencyMidlleware::class,
         'emg' => \App\Http\Middleware\EmegencyMidlleware::class,
         'warehouse' => \App\Http\Middleware\WareHouseMidlleware::class,
+        'check.stock' => \App\Http\Middleware\CheckStock::class . ':' . CheckStockRequest::class,
 
     ];
 }

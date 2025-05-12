@@ -69,4 +69,9 @@ class Item extends Model
     {
         return $this->belongsToMany(Receipt::class, 'receipt_item', 'item_id', 'receipt_id');
     }
+
+    public function requests()
+    {
+        return $this->belongsToMany(Item::class, 'request_items', 'item_id', 'request_id');
+    }
 }

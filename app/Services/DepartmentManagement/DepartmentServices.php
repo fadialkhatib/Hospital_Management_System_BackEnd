@@ -5,16 +5,23 @@ namespace App\Services\DepartmentManagement;
 use App\Models\ActiveToken;
 use App\Models\BelongToDep;
 use App\Models\Department;
+use App\Models\Department_request;
 use App\Models\EmArchive;
 use App\Models\Empatient;
 use App\Models\EMPBelongTo;
 use App\Models\EMPTransfarOperation;
 use App\Models\FilesArchive;
+use App\Models\Item;
 use App\Models\Patient;
 use App\Models\Patient_file;
 use App\Models\TransfarOperation;
+use App\Notifications\NewInventoryRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Notification;
+
 
 class DepartmentServices
 {
@@ -245,4 +252,65 @@ class DepartmentServices
         }
 
         //search
+
+        public static function new_request(Request $request)
+        {
+                DB::beginTransaction();
+
+                try {
+                        // التحقق من صحة البيانات
+                        $validated = $request->validate([
+                                'department_id' => 'required|exists:departments,id',
+                                'item_id' => 'required|exists:items,id', // تأكد من وجود المادة
+                                'requested_quantity' => 'required|integer|min:1',
+                        ]);
+
+                        // التحقق الإضافي من وجود المادة
+                        $itemExists = Item::where('id', $validated['item_id'])->exists();
+                        if (!$itemExists) {
+                                throw new \Exception('المادة المطلوبة غير موجودة في النظام');
+                        }
+
+                        // إنشاء طلب القسم
+                        $token = json_decode(base64_decode($request->header('token')));
+                        $departmentRequest = Department_request::create([
+                                'department_id' => $validated['department_id'],
+                                'requested_by' => $token->id,
+                                'status' => 'pending',
+                                'notes' => $validated['notes'] ?? null
+                        ]);
+
+                        // إضافة بنود الطلب
+                        $departmentRequest->itemss()->create([
+                                'request_id' => $departmentRequest->id,
+                                'item_id' => $validated['item_id'],
+                                'requested_quantity' => $validated['requested_quantity'],
+                        ]);
+
+                        // إرسال الإشعارات
+
+
+                        DB::commit();
+
+                        return response()->json([
+                                'success' => true,
+                                'message' => 'تم إنشاء الطلب بنجاح',
+                                'data' => $departmentRequest->load('itemss')
+                        ], 201);
+                } catch (\Illuminate\Validation\ValidationException $e) {
+                        DB::rollBack();
+                        return response()->json([
+                                'success' => false,
+                                'message' => 'خطأ في التحقق من البيانات',
+                                'errors' => $e->errors()
+                        ], 422);
+                } catch (\Exception $e) {
+                        DB::rollBack();
+                        return response()->json([
+                                'success' => false,
+                                'message' => 'فشل في إنشاء الطلب',
+                                'error' => $e->getMessage()
+                        ], 500);
+                }
+        }
 }

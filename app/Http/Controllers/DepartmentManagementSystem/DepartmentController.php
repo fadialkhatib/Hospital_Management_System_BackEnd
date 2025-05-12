@@ -106,4 +106,10 @@ class DepartmentController extends Controller
         $fast = DepartmentServices::fast_treatment($request);
         return response()->json(['message' => $fast]);
     }
+
+    public function new_request(Request $request)
+    {
+        $new = DepartmentServices::new_request($request);
+        return response()->json(['message' => $new]);
+    }
 }

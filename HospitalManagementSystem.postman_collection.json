@@ -36,7 +36,7 @@
 							"formdata": [
 								{
 									"key": "department_id",
-									"value": "9",
+									"value": "5",
 									"type": "text"
 								},
 								{
@@ -572,6 +572,73 @@
 								"api",
 								"dep",
 								"fast"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Medical Request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6NSwibmFtZSI6IlJhZGlvR3JhcGhlciIsInR5cGVfaWQiOjQsImNyZWF0ZWRfYXQiOiIyMDI1LTA0LTI5VDEzOjI2OjEwLjAwMDAwMFoiLCJ1cGRhdGVkX2F0IjoiMjAyNS0wNC0yOVQxMzoyNjoxMC4wMDAwMDBaIn0=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "department_id",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "notes",
+									"value": "adadada",
+									"type": "text"
+								},
+								{
+									"key": "item_id",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "requested_quantity",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/dep/add",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"dep",
+								"add"
 							]
 						}
 					},
@@ -3128,7 +3195,7 @@
 						"header": [
 							{
 								"key": "token",
-								"value": "eyJpZCI6OSwibmFtZSI6IldhcmVIb3VzZSBEZXBhcnRtZW50IiwidHlwZV9pZCI6MywiY3JlYXRlZF9hdCI6IjIwMjUtMDQtMTVUMDQ6Mjk6NDIuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDI1LTA0LTE1VDA0OjI5OjQyLjAwMDAwMFoifQ==",
+								"value": "eyJpZCI6OSwibmFtZSI6IldhcmVIb3VzZSBEZXBhcnRtZW50IiwidHlwZV9pZCI6MywiY3JlYXRlZF9hdCI6IjIwMjUtMDQtMjlUMTM6MjY6MTEuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDI1LTA0LTI5VDEzOjI2OjExLjAwMDAwMFoifQ==",
 								"type": "text"
 							}
 						],
@@ -3398,7 +3465,7 @@
 						"header": [
 							{
 								"key": "token",
-								"value": "eyJpZCI6OSwibmFtZSI6IldhcmVIb3VzZSBEZXBhcnRtZW50IiwidHlwZV9pZCI6MywiY3JlYXRlZF9hdCI6IjIwMjUtMDQtMTVUMDQ6Mjk6NDIuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDI1LTA0LTE1VDA0OjI5OjQyLjAwMDAwMFoifQ==",
+								"value": "eyJpZCI6OSwibmFtZSI6IldhcmVIb3VzZSBEZXBhcnRtZW50IiwidHlwZV9pZCI6MywiY3JlYXRlZF9hdCI6IjIwMjUtMDQtMjlUMTM6MjY6MTEuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDI1LTA0LTI5VDEzOjI2OjExLjAwMDAwMFoifQ==",
 								"type": "text"
 							}
 						],
@@ -3444,7 +3511,7 @@
 						"header": [
 							{
 								"key": "token",
-								"value": "eyJpZCI6OSwibmFtZSI6IldhcmVIb3VzZSBEZXBhcnRtZW50IiwidHlwZV9pZCI6MywiY3JlYXRlZF9hdCI6IjIwMjUtMDQtMTVUMDQ6Mjk6NDIuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDI1LTA0LTE1VDA0OjI5OjQyLjAwMDAwMFoifQ==",
+								"value": "eyJpZCI6OSwibmFtZSI6IldhcmVIb3VzZSBEZXBhcnRtZW50IiwidHlwZV9pZCI6MywiY3JlYXRlZF9hdCI6IjIwMjUtMDQtMjlUMTM6MjY6MTEuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDI1LTA0LTI5VDEzOjI2OjExLjAwMDAwMFoifQ==",
 								"type": "text"
 							}
 						],
@@ -3485,7 +3552,7 @@
 						"header": [
 							{
 								"key": "token",
-								"value": "eyJpZCI6OSwibmFtZSI6IldhcmVIb3VzZSBEZXBhcnRtZW50IiwidHlwZV9pZCI6MywiY3JlYXRlZF9hdCI6IjIwMjUtMDQtMTVUMDQ6Mjk6NDIuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDI1LTA0LTE1VDA0OjI5OjQyLjAwMDAwMFoifQ==",
+								"value": "eyJpZCI6OSwibmFtZSI6IldhcmVIb3VzZSBEZXBhcnRtZW50IiwidHlwZV9pZCI6MywiY3JlYXRlZF9hdCI6IjIwMjUtMDQtMjlUMTM6MjY6MTEuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDI1LTA0LTI5VDEzOjI2OjExLjAwMDAwMFoifQ==",
 								"type": "text"
 							}
 						],
@@ -3499,7 +3566,7 @@
 								},
 								{
 									"key": "code",
-									"value": "145325",
+									"value": "145325111",
 									"type": "text"
 								},
 								{
@@ -3509,7 +3576,7 @@
 								},
 								{
 									"key": "barcode",
-									"value": "145325",
+									"value": "145325111",
 									"type": "text"
 								},
 								{
@@ -3564,8 +3631,9 @@
 								},
 								{
 									"key": "notes",
-									"value": "يحفظ بعيدا عن متناول الأطفال . للاستعمال الخارجي فقط",
-									"type": "text"
+									"value": "",
+									"type": "text",
+									"disabled": true
 								}
 							]
 						},
@@ -4165,6 +4233,51 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Approve Request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJpZCI6OSwibmFtZSI6IldhcmVIb3VzZSBEZXBhcnRtZW50IiwidHlwZV9pZCI6MywiY3JlYXRlZF9hdCI6IjIwMjUtMDQtMjlUMTM6MjY6MTEuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDI1LTA0LTI5VDEzOjI2OjExLjAwMDAwMFoifQ==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "request_id",
+									"value": "39",
+									"type": "text"
+								},
+								{
+									"key": "approved_quantity",
+									"value": "9",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/warehouse/approve",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"warehouse",
+								"approve"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -4173,6 +4286,9 @@
 			"item": [
 				{
 					"name": "All Tender",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -4182,6 +4298,10 @@
 								"type": "text"
 							}
 						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
 						"url": {
 							"raw": "http://127.0.0.1:8000/api/tender/all",
 							"protocol": "http",
